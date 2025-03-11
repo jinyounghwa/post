@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뭔가 보여드리겠습니다</title>
+    
+    <!-- 오픈그래프 태그 -->
+    <meta property="og:title" content="뭔가 보여드리겠습니다">
+    <meta property="og:description" content="안녕? 내 이름은 진영화라고 해, 언젠가 뭐라도 보여줄께.">
+    <meta property="og:image" content="https://em-content.zobj.net/thumbs/120/apple/325/waving-hand_1f44b.png">
+    <meta property="og:url" content="https://example.com">
+    <meta property="og:type" content="website">
+    
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --container-bg: white;
+            --container-shadow: rgba(0, 0, 0, 0.1);
+            --time-color: #333;
+            --date-color: #666;
+            --toggle-bg: #ddd;
+            --toggle-circle: white;
+            --toggle-border: #ccc;
+            --intro-color: #555;
+            --email-color: #0078d7;
+            --modal-overlay: rgba(0, 0, 0, 0.5);
+            --modal-bg: white;
+            --modal-text: #333;
+            --modal-border: #ddd;
+            --button-bg: #0078d7;
+            --button-text: white;
+            --button-hover: #005fa3;
+            --button-cancel: #f44336;
+            --button-cancel-hover: #d32f2f;
+            --input-bg: #f9f9f9;
+            --input-border: #ddd;
+            --input-focus: #0078d7;
+            --input-text: #333;
+            --input-placeholder: #999;
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #222;
+            --container-bg: #333;
+            --container-shadow: rgba(0, 0, 0, 0.5);
+            --time-color: #f5f5f5;
+            --date-color: #ddd;
+            --toggle-bg: #555;
+            --toggle-circle: #f5f5f5;
+            --toggle-border: #777;
+            --intro-color: #ccc;
+            --email-color: #4db2ff;
+            --modal-overlay: rgba(0, 0, 0, 0.7);
+            --modal-bg: #444;
+            --modal-text: #f5f5f5;
+            --modal-border: #555;
+            --button-bg: #4db2ff;
+            --button-text: #222;
+            --button-hover: #7dc5ff;
+            --button-cancel: #ff6b6b;
+            --button-cancel-hover: #ff9e9e;
+            --input-bg: #555;
+            --input-border: #666;
+            --input-focus: #4db2ff;
+            --input-text: #f5f5f5;
+            --input-placeholder: #aaa;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .clock-container {
+            text-align: center;
+            padding: 2.5rem;
+            border-radius: 10px;
+            background-color: var(--container-bg);
+            box-shadow: 0 4px 8px var(--container-shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .time-display {
+            font-size: 3rem;
+            color: var(--time-color);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .date-display {
+            font-size: 1.5rem;
+            color: var(--date-color);
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .intro-text {
+            color: var(--intro-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .email-link {
+            color: var(--email-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        
+        .theme-toggle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .theme-toggle-label {
+            margin-right: 10px;
+            color: var(--date-color);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .theme-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .theme-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 3px;
+            background-color: var(--toggle-circle);
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(28px);
+        }
+        
+        /* 모달 스타일 */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--modal-overlay);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal {
+            background-color: var(--modal-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--modal-text);
+        }
+        
+        .modal-content {
+            margin-bottom: 1.5rem;
+            color: var(--modal-text);
+        }
+        
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .modal-button {
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .send-button {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+        }
+        
+        .send-button:hover {
+            background-color: var(--button-hover);
+        }
+        
+        .cancel-button {
+            background-color: var(--button-cancel);
+            color: var(--button-text);
+        }
+        
+        .cancel-button:hover {
+            background-color: var(--button-cancel-hover);
+        }
+        
+        /* 메시지 입력 모달 스타일 */
+        .message-form {
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--modal-text);
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--input-border);
+            border-radius: 5px;
+            background-color: var(--input-bg);
+            color: var(--input-text);
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--input-focus);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        ::placeholder {
+            color: var(--input-placeholder);
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="time-display" id="time">00:00:00</div>
+        <div class="date-display" id="date">2025년 3월 11일</div>
+        
+        <div class="intro-text">
+            안녕? 내 이름은 진영화 라고 해, <br/>언젠가 뭐라도 보여줄께.<br>
+            내가 뭘 하고 있는지는 <span class="email-link" id="email-link">이메일</span>로 물어봐줘.
+        </div>
+        
+        <div class="theme-toggle-container">
+            <span class="theme-toggle-label">다크 모드</span>
+            <label class="theme-toggle">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider">
+                </span>
+            </label>
+        </div>
+    </div>
+    
+    <!-- 이메일 모달 -->
+    <div class="modal-overlay" id="email-modal">
+        <div class="modal">
+            <div class="modal-title">이메일 보내기</div>
+            <div class="modal-content">
+                timotolkie@gmail.com 으로 이메일을 보내시겠습니까?
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-button send-button" id="send-email">보내기</button>
+                <button class="modal-button cancel-button" id="cancel-email">취소</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 메시지 입력 모달 -->
+    <div class="modal-overlay" id="message-modal">
+        <div class="modal">
+            <div class="modal-title">메시지 작성</div>
+            <form class="message-form" id="email-form">
+                <div class="form-group">
+                    <label for="email-subject" class="form-label">제목</label>
+                    <input type="text" id="email-subject" class="form-input" placeholder="이메일 제목을 입력하세요" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-message" class="form-label">내용</label>
+                    <textarea id="email-message" class="form-input form-textarea" placeholder="보낼 메시지를 입력하세요" required></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="modal-button send-button">보내기</button>
+                    <button type="button" class="modal-button cancel-button" id="cancel-message">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            
+            // 시간 형식 설정 (시:분:초)
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            // 날짜 형식 설정 (년월일)
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const dateString = `${year}년 ${month}월 ${day}일`;
+            
+            // HTML 요소 업데이트
+            document.getElementById('time').textContent = timeString;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // 초기 시간 설정
+        updateClock();
+        
+        // 1초마다 시간 업데이트
+        setInterval(updateClock, 1000);
+        
+        // 다크 모드 토글 기능
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // 사용자 선호 테마 확인 (시스템 설정 또는 이전 선택)
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const savedTheme = localStorage.getItem('theme');
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.checked = true;
+        }
+        
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // 이메일 모달 기능
+        const emailLink = document.getElementById('email-link');
+        const emailModal = document.getElementById('email-modal');
+        const messageModal = document.getElementById('message-modal');
+        const sendEmailBtn = document.getElementById('send-email');
+        const cancelEmailBtn = document.getElementById('cancel-email');
+        const cancelMessageBtn = document.getElementById('cancel-message');
+        const emailForm = document.getElementById('email-form');
+        
+        // 이메일 링크 클릭 시 모달 표시
+        emailLink.addEventListener('click', function() {
+            emailModal.style.display = 'flex';
+        });
+        
+        // 취소 버튼 클릭 시 모달 닫기
+        cancelEmailBtn.addEventListener('click', function() {
+            emailModal.style.display = 'none';
+        });
+        
+        // 첫 번째 모달에서 보내기 버튼 클릭 시 메시지 입력 모달 표시
+        sendEmailBtn.addEventListener('click', function() {
+            emailModal.style.display = 'none';
+            messageModal.style.display = 'flex';
+        });
+        
+        // 메시지 모달에서 취소 버튼 클릭 시 모달 닫기
+        cancelMessageBtn.addEventListener('click', function() {
+            messageModal.style.display = 'none';
+        });
+        
+        // 메시지 폼 제출 시 이메일 보내기
+        emailForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const subject = document.getElementById('email-subject').value;
+            const message = document.getElementById('email-message').value;
+            
+            // mailto 링크로 이메일 클라이언트 열기
+            window.location.href = `mailto:timotolkie@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+            
+            // 모달 닫기 및 폼 초기화
+            messageModal.style.display = 'none';
+            emailForm.reset();
+        });
+        
+        // 모달 외부 클릭 시 닫기
+        emailModal.addEventListener('click', function(event) {
+            if (event.target === emailModal) {
+                emailModal.style.display = 'none';
+            }
+        });
+        
+        messageModal.addEventListener('click', function(event) {
+            if (event.target === messageModal) {
+                messageModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

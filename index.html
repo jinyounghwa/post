@@ -3,301 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>뭔가 보여드리겠습니다</title>
+    <meta name="description" content="웹/앱 기획자 진영화의 포트폴리오입니다.">
+    <meta name="keywords" content="웹기획자, 앱기획자, 포트폴리오, 진영화, PM, PL, Figma">
+    <meta name="author" content="진영화">
     
     <!-- 오픈그래프 태그 -->
-    <meta property="og:title" content="뭔가 보여드리겠습니다">
-    <meta property="og:description" content="안녕? 내 이름은 진영화라고 해, 언젠가 뭐라도 보여줄께.">
-    <meta property="og:image" content="https://em-content.zobj.net/thumbs/120/apple/325/waving-hand_1f44b.png">
+    <meta property="og:title" content="기획자 진영화입니다.">
+    <meta property="og:description" content="웹/앱 기획자 진영화의 포트폴리오입니다. (PM/PL/Figma)">
+    <meta property="og:image" content="images/jin.jpg">
     <meta property="og:url" content="https://example.com">
     <meta property="og:type" content="website">
     
-    <style>
-        :root {
-            --bg-color: #f5f5f5;
-            --container-bg: white;
-            --container-shadow: rgba(0, 0, 0, 0.1);
-            --time-color: #333;
-            --date-color: #666;
-            --toggle-bg: #ddd;
-            --toggle-circle: white;
-            --toggle-border: #ccc;
-            --intro-color: #555;
-            --email-color: #0078d7;
-            --modal-overlay: rgba(0, 0, 0, 0.5);
-            --modal-bg: white;
-            --modal-text: #333;
-            --modal-border: #ddd;
-            --button-bg: #0078d7;
-            --button-text: white;
-            --button-hover: #005fa3;
-            --button-cancel: #f44336;
-            --button-cancel-hover: #d32f2f;
-            --input-bg: #f9f9f9;
-            --input-border: #ddd;
-            --input-focus: #0078d7;
-            --input-text: #333;
-            --input-placeholder: #999;
-        }
-        
-        [data-theme="dark"] {
-            --bg-color: #222;
-            --container-bg: #333;
-            --container-shadow: rgba(0, 0, 0, 0.5);
-            --time-color: #f5f5f5;
-            --date-color: #ddd;
-            --toggle-bg: #555;
-            --toggle-circle: #f5f5f5;
-            --toggle-border: #777;
-            --intro-color: #ccc;
-            --email-color: #4db2ff;
-            --modal-overlay: rgba(0, 0, 0, 0.7);
-            --modal-bg: #444;
-            --modal-text: #f5f5f5;
-            --modal-border: #555;
-            --button-bg: #4db2ff;
-            --button-text: #222;
-            --button-hover: #7dc5ff;
-            --button-cancel: #ff6b6b;
-            --button-cancel-hover: #ff9e9e;
-            --input-bg: #555;
-            --input-border: #666;
-            --input-focus: #4db2ff;
-            --input-text: #f5f5f5;
-            --input-placeholder: #aaa;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: var(--bg-color);
-            transition: background-color 0.3s ease;
-            padding: 0 10px;
-        }
-        
-        .clock-container {
-            text-align: center;
-            padding: 2.5rem;
-            border-radius: 10px;
-            background-color: var(--container-bg);
-            box-shadow: 0 4px 8px var(--container-shadow);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            max-width: 500px;
-            width: 90%;
-        }
-        
-        .time-display {
-            font-size: 3rem;
-            color: var(--time-color);
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .date-display {
-            font-size: 1.5rem;
-            color: var(--date-color);
-            margin-bottom: 2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .intro-text {
-            color: var(--intro-color);
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            padding: 0 1rem;
-            transition: color 0.3s ease;
-        }
-        
-        .email-link {
-            color: var(--email-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .email-link:hover {
-            text-decoration: underline;
-        }
-        
-        .theme-toggle-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1.5rem;
-        }
-        
-        .theme-toggle-label {
-            margin-right: 10px;
-            color: var(--date-color);
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        
-        .theme-toggle {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 30px;
-        }
-        
-        .theme-toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--toggle-bg);
-            border: 1px solid var(--toggle-border);
-            transition: .4s;
-            border-radius: 34px;
-        }
-        
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 22px;
-            width: 22px;
-            left: 4px;
-            bottom: 3px;
-            background-color: var(--toggle-circle);
-            transition: .4s;
-            border-radius: 50%;
-        }
-        
-        input:checked + .slider:before {
-            transform: translateX(28px);
-        }
-        
-        /* 모바일 반응형 스타일 */
-        @media (max-width: 768px) {
-            .clock-container {
-                padding: 1.5rem;
-                width: 95%;
-            }
-            
-            .time-display {
-                font-size: 2.5rem;
-            }
-            
-            .date-display {
-                font-size: 1.2rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .intro-text {
-                font-size: 1rem;
-                padding: 0 0.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .clock-container {
-                padding: 1.2rem;
-            }
-            
-            .time-display {
-                font-size: 2rem;
-            }
-            
-            .date-display {
-                font-size: 1rem;
-                margin-bottom: 1.2rem;
-            }
-            
-            .theme-toggle-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .theme-toggle-label {
-                margin-right: 0;
-                margin-bottom: 5px;
-            }
-        }
-    </style>
+    <title>기획자 진영화입니다.</title>
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    
+
 </head>
 <body>
-    <div class="clock-container">
-        <div class="time-display" id="time">00:00:00</div>
-        <div class="date-display" id="date">2025년 3월 11일</div>
-        
-        <div class="intro-text">
-            안녕? 내 이름은 진영화 라고 해, <br/>언젠가 뭐라도 보여줄께.<br>
-            내가 뭘 하고 있는지는 <br/><a href="https://x.com/timotolkie" target="_blank" class="email-link">x.com/timotolkie</a>으로 물어봐줘.
-        </div>
-        
-        <div class="theme-toggle-container">
-            <span class="theme-toggle-label">다크 모드</span>
-            <label class="theme-toggle">
-                <input type="checkbox" id="theme-toggle">
-                <span class="slider">
-                </span>
-            </label>
+    <!-- 섹션 이동 버튼 -->
+    <div class="section-nav">
+        <button class="nav-toggle">
+            <span class="material-icons">menu</span>
+        </button>
+        <div class="nav-menu">
+            <a href="#profile" class="nav-item">프로필</a>
+            <a href="#career" class="nav-item">경력</a>
+            <a href="#introduction" class="nav-item">소개</a>
+            <a href="#projects" class="nav-item">프로젝트</a>
+            <a href="#design" class="nav-item">화면설계</a>
+            <a href="#skills" class="nav-item">기술</a>
+            <a href="#industry" class="nav-item">산업분야</a>
         </div>
     </div>
+    
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">기획자 진영화 이력서/자기소개서</div>
+            <button id="theme-toggle" class="theme-toggle">☀️</button>
+        </div>
+    </header>
 
-    <script>
-        function updateClock() {
-            const now = new Date();
-            
-            // 시간 형식 설정 (시:분:초)
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
-            
-            // 날짜 형식 설정 (년월일)
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const dateString = `${year}년 ${month}월 ${day}일`;
-            
-            // HTML 요소 업데이트
-            document.getElementById('time').textContent = timeString;
-            document.getElementById('date').textContent = dateString;
-        }
+    <div class="container">
+        <!-- 프로필 섹션 -->
+        <section id="profile" class="profile-section">
+            <div class="profile-image">
+                <img src="images/jin.jpg" alt="진영화 프로필 사진">
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-name">진영화</h1>
+                <h2 class="profile-title">웹/앱 기획자 (PM/PL/Figma)</h2>
+                <p class="profile-description">
+                    안녕하세요! 저는 웹과 앱 서비스 기획을 전문으로 하는 진영화입니다. 사용자 중심의 디자인과 효율적인 프로젝트 관리를 통해 성공적인 서비스 개발을 이끌어내는 것을 목표로 합니다. Figma를 활용한 프로토타이핑과 프로젝트 리더십 경험을 바탕으로 다양한 프로젝트를 수행해왔습니다.
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:timotolkie@gmail.com">📧 timotolkie@gmail.com</a>
+                </div>
+            </div>
+        </section>
 
-        // 초기 시간 설정
-        updateClock();
+
+        <!-- 이력서 섹션: 경력 -->
+        <section id="career" class="resume-section">
+            <h2 class="section-title">경력</h2>
+            
+            <!-- 경력 1 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">주식회사요필</h3>
+                <h4 class="resume-item-subtitle">상담사 통합 관리 시스템 ADMIN 기획 (단독 파견근무)</h4>
+                <p class="resume-item-period">2024년 4월 ~ 2024년 11월 (8개월)</p>
+                <p class="resume-item-description">
+                    연봉: 5,200만원<br>
+                    주요직무: 스토리보드, UI·UX기획
+                </p>
+            </div>
+            
+            <!-- 경력 2 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">(주)컨피테크</h3>
+                <h4 class="resume-item-subtitle">사업기획팀 차장</h4>
+                <p class="resume-item-period">2023년 5월 ~ 2023년 11월 (7개월)</p>
+                <p class="resume-item-description">
+                    쌍용자동차 (KGM) 인포콘 APP 디지털 키 기획<br>
+                    <a href="https://infoconn.kg-mobility.com/digital-key/intro.do" target="_blank" class="project-link">https://infoconn.kg-mobility.com/digital-key/intro.do</a><br>
+                    연봉: 5,000만원<br>
+                    주요직무: 앱기획
+                </p>
+            </div>
+            
+            <!-- 경력 3 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">주식회사집쇼코리아</h3>
+                <h4 class="resume-item-subtitle">개발팀 차장 팀장</h4>
+                <p class="resume-item-period">2021년 7월 ~ 2023년 3월 (1년 9개월)</p>
+                <p class="resume-item-description">
+                    <strong>VR컨텐츠 (메타포트를 이용한) 개발</strong><br>
+                    
+                    VR,XR 컨텐츠 CMS 시스템 기획, 개발<br>
+                    - 연세대학교 virtualTour 개발<br>
+                    <a href="https://library.yonsei.ac.kr/local/html/virtualTour" target="_blank" class="project-link">https://library.yonsei.ac.kr/local/html/virtualTour</a><br>
+                    - 연세대학교 virtualTour CMS 기획<br><br>
+                    
+                    - 난계 박물관 키오스크 개발<br>
+                    - 소담센터 키오스크 개발<br>
+                    <a href="https://zipshow-static-web.s3.ap-northeast-2.amazonaws.com/sodamVR/index.html" target="_blank" class="project-link">https://zipshow-static-web.s3.ap-northeast-2.amazonaws.com/sodamVR/index.html</a><br>
+                    - 김해 고고가야 VR컨텐츠 개발<br>
+                    <a href="https://zipshow-static-web.s3.ap-northeast-2.amazonaws.com/gogo_gaya/cheonmundae_gwancheukdong/index.html" target="_blank" class="project-link">https://zipshow-static-web.s3.ap-northeast-2.amazonaws.com/gogo_gaya/cheonmundae_gwancheukdong/index.html</a><br><br>
+                    
+                    <strong>드론 컨텐츠 (krpano,3dVista)를 이용한 개발</strong><br>
+                    - 부평 역사박물관<br>
+                    <a href="https://zipshow-static-web.s3.ap-northeast-2.amazonaws.com/360bupyeong/vtour/tour.html" target="_blank" class="project-link">https://zipshow-static-web.s3.ap-northeast-2.amazonaws.com/360bupyeong/vtour/tour.html</a><br>
+                    - 김해 도시가박물관 VR,드론 컨텐츠 시스템 개발<br>
+                    - 충남 3D 로케이션 드론 컨텐츠 개발<br><br>
+                    
+                    <strong>AR 컨텐츠 기획, 개발</strong><br>
+                    - 고고가야 AR 프로젝트 기획, 개발 (모바일 전용)<br>
+                    <a href="https://smartcity.gimhae.go.kr/mobilear/ar/ar31.html" target="_blank" class="project-link">https://smartcity.gimhae.go.kr/mobilear/ar/ar31.html</a><br><br>
+                    
+                    <strong>웹페이지 기획, PM</strong><br>
+                    - GCC 유니세프 홈페이지 리뉴얼<br>
+                    <a href="http://gcc.unescoapceiu.org/" target="_blank" class="project-link">http://gcc.unescoapceiu.org/</a><br><br>
+                    
+                    연봉: 4,900만원<br>
+                    주요직무: PM
+                </p>
+            </div>
+            
+            <!-- 경력 4 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">주식회사둥글</h3>
+                <h4 class="resume-item-subtitle">기획팀 과장</h4>
+                <p class="resume-item-period">2020년 12월 ~ 2021년 4월 (5개월)</p>
+                <p class="resume-item-description">
+                    명품 쇼핑몰 기획 (운영 시스템 기획)<br>
+                    데이팅 앱 기획 수정<br>
+                    정부과제 진행 외 기획 전반 업무<br><br>
+                    연봉: 4,000만원<br>
+                    주요직무: 서비스기획, 앱기획
+                </p>
+            </div>
+            
+            <!-- 경력 5 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">제로소프트(주)</h3>
+                <h4 class="resume-item-subtitle">개발팀 과장</h4>
+                <p class="resume-item-period">2019년 5월 ~ 2020년 5월 (1년 1개월)</p>
+                <p class="resume-item-description">
+                    안드로이드 ASMR 앱 기획, 컨텐츠 기획<br><br>
+                    연봉: 4,000만원<br>
+                    주요직무: PM
+                </p>
+            </div>
+            
+            <!-- 경력 6 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">(주)프레임아웃</h3>
+                <h4 class="resume-item-subtitle">기획팀 과장</h4>
+                <p class="resume-item-period">2018년 9월 ~ 2018년 12월 (4개월)</p>
+                <p class="resume-item-description">
+                    한화큐셀 제품페이지 운영<br>
+                    참다한홍삼 쇼핑몰 페이지 기획<br><br>
+                    연봉: 3,800만원<br>
+                    주요직무: 웹기획
+                </p>
+            </div>
+            
+            <!-- 경력 7 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">(주)인투윈소프트</h3>
+                <h4 class="resume-item-subtitle">기획팀 과장</h4>
+                <p class="resume-item-period">2017년 12월 ~ 2018년 6월 (7개월)</p>
+                <p class="resume-item-description">
+                    가상화폐 거래소 플랫폼 기획<br>
+                    가상화폐 P2P 거래소 기획<br><br>
+                    연봉: 3,600만원<br>
+                    주요직무: 웹기획
+                </p>
+            </div>
+            
+            <!-- 경력 8 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">주식회사모두스튜디오(MODUSTUDIOCo.,Ltd)</h3>
+                <h4 class="resume-item-subtitle">기획팀 과장</h4>
+                <p class="resume-item-period">2017년 8월 ~ 2017년 10월 (3개월)</p>
+                <p class="resume-item-description">
+                    유진그룹사이버감사실 기획<br>
+                    <a href="https://audit-eugenes.co.kr/front/main.html" target="_blank" class="project-link">https://audit-eugenes.co.kr/front/main.html</a><br><br>
+                    동물자유연대 관리<br>
+                    <a href="http://www.animals.or.kr/ani-main/" target="_blank" class="project-link">http://www.animals.or.kr/ani-main/</a><br><br>
+                    연봉: 3,400만원<br>
+                    주요직무: 웹기획
+                </p>
+            </div>
+        </section>
         
-        // 1초마다 시간 업데이트
-        setInterval(updateClock, 1000);
-        
-        // 다크 모드 토글 기능
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        // 사용자 선호 테마 확인 (시스템 설정 또는 이전 선택)
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle.checked = true;
-        }
-        
-        themeToggle.addEventListener('change', function() {
-            if (this.checked) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
+        <!-- 경력 섹션 2 -->
+        <section class="resume-section">
+            <h2 class="section-title">경력 (계속)</h2>
+            
+            <!-- 경력 9 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">(주)더블유마크</h3>
+                <h4 class="resume-item-subtitle">기획팀 과장</h4>
+                <p class="resume-item-period">2015년 12월 ~ 2016년 4월 (5개월)</p>
+                <p class="resume-item-description">
+                    엠넷 앱/웹 UX컨설팅<br>
+                    청정원 홈페이지 리뉴얼 QA<br><br>
+                    연봉: 3,700만원<br>
+                    주요직무: 웹기획
+                </p>
+            </div>
+            
+            <!-- 경력 10 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">인크루트앤코 주식회사</h3>
+                <h4 class="resume-item-subtitle">사원</h4>
+                <p class="resume-item-period">2015년 3월 ~ 2015년 11월 (9개월)</p>
+                <p class="resume-item-description">
+                    재능마켓 아홉 재구축 및 리뉴얼 기획<br>
+                    취업학교 운영기획<br><br>
+                    연봉: 3,200만원<br>
+                    주요직무: 웹기획
+                </p>
+            </div>
+            
+            <!-- 경력 11 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">주식회사솔트룩스</h3>
+                <h4 class="resume-item-subtitle">대리</h4>
+                <p class="resume-item-period">2014년 2월 ~ 2014년 12월 (11개월)</p>
+                <p class="resume-item-description">
+                    스마트매뉴얼 앱 기획<br><br>
+                    연봉: 3,000만원<br>
+                    주요직무: 앱기획
+                </p>
+            </div>
+            
+            <!-- 경력 12 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">유한회사블루페그</h3>
+                <h4 class="resume-item-subtitle">개발팀 대리</h4>
+                <p class="resume-item-period">2012년 1월 ~ 2013년 11월 (1년 11개월)</p>
+                <p class="resume-item-description">
+                    의학 관련 IPAD 앱 기획<br><br>
+                    패션관련 APP CMS 기획 및 퍼블리싱(HTML/CSS)<br><br>
+                    성형관련 안드로이드 앱 기획<br><br>
+                    연봉: 2,700만원<br>
+                    주요직무: 앱기획
+                </p>
+            </div>
+            
+            <!-- 경력 13 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">주식회사씨엘엠앤에스</h3>
+                <h4 class="resume-item-subtitle">기획팀 주임/계장</h4>
+                <p class="resume-item-period">2010년 5월 ~ 2011년 5월 (1년 1개월)</p>
+                <p class="resume-item-description">
+                    자동차 대여사업 시스템 분석,설계<br>
+                    (Web 기반 위탁행정 및 업체관리)<br>
+                    -자동차 채권 매입 및 할인 시스템 분석, 설계<br><br>
+                    연봉: 2,100만원<br>
+                    주요직무: 앱기획
+                </p>
+            </div>
+            
+            <!-- 경력 14 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">톤퀘스트(TONEQUEST)</h3>
+                <h4 class="resume-item-subtitle">기획마케팅팀 주임/계장</h4>
+                <p class="resume-item-period">2008년 7월 ~ 2009년 12월 (1년 6개월)</p>
+                <p class="resume-item-description">
+                    홈페이지 기획<br>
+                    테크니컸 라이팅 외<br><br>
+                    주요직무: 웹기획
+                </p>
+            </div>
+            
+            <!-- 경력 기술서 -->
+            <div class="resume-item">
+                <h3 class="resume-item-title">경력기술서</h3>
+                <p class="resume-item-description">
+                    웹기획 (스토리보드 및 개발전반 진행)<br>
+                    웹 전반에 대한 기술<br>
+                    메타포트를 이용한 VR 개발 기술 (JS)<br>
+                    메타포트를 이용한 키오스크 개발<br>
+                    드론 촬영 사진을 이용한 웹 컨텐츠 (XML)<br>
+                    QR코드를 이용한 웹 AR 컨텐츠 (Three.js)<br>
+                    웹페이지 전반 기획 및 개발관리 PM<br>
+                    그 외 앱, 모바일웹 기획 및 구축관리<br>
+                    웹페이지 유시보수 및 리뉴얼 기획 및 개발관리<br>
+                    네이티브 APP 기획 및 백오피스 기획<br>
+                    AI를 활용한 데이터 분석 (MCP)
+                </p>
+            </div>
+        </section>
+
+        <!-- 자기소개 섹션 -->
+        <section id="introduction" class="resume-section">
+            <h2 class="section-title">자기소개</h2>
+            <div class="resume-item">
+                <p class="resume-item-description">
+                    앱/웹 기획자로 다양한 회사에서 경력을 쌓아왔습니다. 메타포트와 케이알파노를 이용한 VR/DRON 이미지를 웹페이지로 구현하고 컨텐츠를 추가하는 작업을 하였으며, Three.js를 활용한 AR 서비스를 제작하는 회사에서 재직 후 최근에는 쌍용자동차의 인포콘 앱 디지털 키를 기획완료 후 새로운 회사를 찾고 있습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>톤퀘스트:</strong> 수입 물품의 스펙과 테크니컬 라이팅을 담당하였으며, 제품 홍보 및 판매를 위한 홈페이지 컨텐츠 기획을 담당했습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>씨엘엠엔에스:</strong> 자동차 채권 업무는 지역에 관계없이 실시간 가상계좌 납부를 가능하게 하여 전화 한 통이면 바로 납부가 가능하도록 하는 시스템입니다. 해당 부분을 기획하였습니다. 기존의 사업이 아닌 완전히 새로운 시스템이었기에 초기에는 어려움이 있었지만 3-4개월이 지난 후 자동차를 등록하려는 업체는 물론 개인도 쉽게 이용 할 수 있고 빠르게 공채를 납부하여 하루에 자동차 등록이 가능하게 되었으며 회사의 매출에도 매월 일정한 매출을 이루 낼 수 있었고, 관련 사업체들에게도 모범 사례로 소개되어 회사로서는 큰 이득을 얻게 되었습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>에듀미디어(계약직):</strong> 파고다 어학원 주니어 잉글리쉬 웹 기획과 문제은행, 채점 시스템 기획을 담당했습니다. 또한 국민권익위원회의 홈페이지 전체의 리뉴얼 기획과 웹 표준에 대한 오류사항을 퍼블리셔와 함께 수정하는 역할을 담당하였으며 그 당시 크게 알려지지 않았던 모바일 웹페이지를 시험 구축을 기획하는 역할을 담당하였습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>블루페그:</strong> 의학 관련 및 영업담당이 사용하는 앱의 기획을 담당했습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>솔트룩스:</strong> 유저 매뉴얼 자동화 시스템 프로젝트 기획을 담당했습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>인크루트:</strong> 재능마켓 웹서비스의 기획과 인크루트 취업학교 운영기획으로 기획팀 단위의 기획 업무의 경험을 쌓았습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>더블유마크:</strong> 더블유마크에서는 6개월동안 일하면서 신규사업 기획과 테스트 업무에 집중하며 회사가 경영상 어려워 질 때까지 좋은 경험을 하였습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>집쇼코리아:</strong> 드론 촬영물을 이용한 웹서비스 기획 및 개발을 진행하고, 메타포트를 이용한 VR이미지에 컨텐츠 (영상,이미지,텍스트 테그 - 팝업)를 기획 및 개발을 진행하고 있습니다. 회사 내 자체 개발한 웹 서비스에서 D3.js를 이용하여 대시보드 기능을 기획하였으며 기획뿐만 아니라 일부 개발도 참여했습니다. 이후 프론트엔드 개발을 같이 하거나 기획을 하면서 개발을 지원하는 방식으로 업무를 진행하고 있습니다. 개발에 참여하는 기획자로 개발팀 팀장으로 1년 9개월 재직하였으며 PM과 기획을 겼업하여 업무를 진행하였습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>컨피테크:</strong> 쌍용자동차(KGM)에서 사용하는 인포콘 APP의 디지털 키(NFC및 블루투스 통신을 이용한 차량 키 작동 및 공유) 아이폰/안드로이드 기획을 담당하였습니다.
+                </p>
+                <p class="resume-item-description">
+                    <strong>요필:</strong> 상담사를 관리하고 지원하는 프로젝트에 기획을 담당하였습니다. 개발사에 기획 단독으로 파견을 나가서 고객사 개발팀과 작업하였으며 기획 완료 및 개발 런칭 후 해당 프로젝트를 완전히 마쳐습니다.
+                </p>
+                <p class="resume-item-description">
+                    다양한 프로젝트와 회사에서 경험을 쌓으면서 고객의 목표를 달성하기 위해 노력해왔습니다. 앞으로도 좋은 사람들과 함께 더 나은 서비스를 제공하는 회사에서 일하고 싶습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 프로젝트 슬라이더 섹션 -->
+        <section id="projects" class="slider-section">
+            <h2 class="section-title">프로젝트</h2>
+            <div class="slider-container">
+                <!-- 슬라이더 좌우 화살표 -->
+                <button class="slider-arrow slider-prev">&lt;</button>
+                <button class="slider-arrow slider-next">&gt;</button>
+                
+                <!-- 슬라이드 1 -->
+                <div class="slider-item">
+                    <img src="images/1.png" alt="상담사 관리 프로젝트" class="slider-image">
+                    <div class="slider-content">
+                        <h3 class="slider-title">상담사 관리 프로젝트</h3>
+                        <div class="slider-description">
+                            <p><strong>수행회사:</strong> 주식회사 요필 (기획 참여율: 100%)</p>
+                            <p><strong>프로젝트:</strong> 상담사 관리 프로젝트 (기획자 단독 파견 근무)</p>
+                            <p><strong>프로젝트 상태:</strong> 구축 완료, 런칭 완료</p>
+                            <p><strong>프로젝트 역할:</strong> 이전 작업자 프로젝트 전면 수정 및 고객사 개발팀과 협업하여 고객사 요구에 맞춤 기획 진행 및 기획된 부분 개발 완료 후 파견 종료</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 슬라이드 2 -->
+                <div class="slider-item">
+                    <img src="images/2.png" alt="KDG(쌍용자동차) 인프콘 APP 디지털 키 기획" class="slider-image">
+                    <div class="slider-content">
+                        <h3 class="slider-title">KDG(쌍용자동차) 인프콘 APP 디지털 키 기획</h3>
+                        <div class="slider-description">
+                            <p><strong>수행회사:</strong> 컨피테크 주식회사 (기획 참여율: 50%)</p>
+                            <p><strong>프로젝트:</strong> KDG(쌍용자동차) 인프콘 APP 디지털 키 기획</p>
+                            <p><strong>프로젝트 상태:</strong> 구축 완료, 런칭 완료</p>
+                            <p><strong>프로젝트 역할:</strong> 자동차와 휴대폰 APP의 연동으로 열쇠 역할을 휴대폰으로 대신하도록 APP에 해당 기능을 탑재 (생성, 삭제, 공유 기능 제공 – 아이폰/ 안드로이드 동시 제공)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 슬라이드 3 -->
+                <div class="slider-item">
+                    <img src="images/3.png" alt="연세대학교 VR 도서관 시스템" class="slider-image">
+                    <div class="slider-content">
+                        <h3 class="slider-title">연세대학교 VR 도서관 시스템</h3>
+                        <div class="slider-description">
+                            <p><strong>수행회사:</strong> 집쇼코리아 주식회사 (기획 참여율: 100%, 개발참여율: 30%)</p>
+                            <p><strong>프로젝트:</strong> 연세대학교 VR 도서관 시스템</p>
+                            <p><strong>프로젝트 상태:</strong> 구축 완료, 런칭 완료</p>
+                            <p><strong>프로젝트 역할:</strong> VR 촬영 사진에 연세대 도서관에서 받은 컨텐츠를 추가하여 확인 할 수 있는 시스템 및 컨텐츠 업데이트 위한 ADMIN 웹페이지 기획 및 일부 개발</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 슬라이드 4 -->
+                <div class="slider-item">
+                    <img src="images/4.png" alt="충청남도 로케이션 VR시스템" class="slider-image">
+                    <div class="slider-content">
+                        <h3 class="slider-title">충청남도 로케이션 VR시스템</h3>
+                        <div class="slider-description">
+                            <p><strong>수행회사:</strong> 집쇼코리아 (기획참여율: 100%, 개발참여율: 50%)</p>
+                            <p><strong>프로젝트:</strong> 충청남도 로케이션 VR시스템</p>
+                            <p><strong>프로젝트 상태:</strong> 구축 완료, 런칭 완료</p>
+                            <p><strong>프로젝트 역할:</strong> VR, DRON 사진에 컨텐츠를 추가하여 비 대면 실감 체험을 가능하도록 웹사이트를 구축함 (기획 및 개발)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 슬라이더 도트 -->
+                <div class="slider-dots">
+                    <span class="slider-dot active"></span>
+                    <span class="slider-dot"></span>
+                    <span class="slider-dot"></span>
+                    <span class="slider-dot"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 화면설계 예시 섹션 -->
+        <section id="design" class="resume-section">
+            <h2 class="section-title">화면설계 예시 (쇼핑몰 Client / Admin - Figma)</h2>
+            <div class="figma-container">
+                <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="600" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FJ55T0UH2qJFk2bvLbSmSWF%2Ftest%3Fnode-id%3D60-4371" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- 이력서 섹션: 기술 -->
+        <section id="skills" class="resume-section">
+            <h2 class="section-title">기술 및 도구</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">UI/UX 설계</span>
+                <span class="skill-tag">프로젝트 관리</span>
+                <span class="skill-tag">요구사항 분석</span>
+                <span class="skill-tag">프로토타이핑</span>
+                <span class="skill-tag">모바일 앱 기획</span>
+                <span class="skill-tag">웹 서비스 기획</span>
+                <span class="skill-tag">증강현실(AR)</span>
+            </div>
+        </section>
+
+        <!-- 이력서 섹션: 산업 분야 -->
+        <section id="industry" class="resume-section">
+            <h2 class="section-title">산업 분야</h2>
+            <div class="resume-item">
+                <p class="resume-item-description">
+                    <strong>솔루션·SI·CRM·ERP:</strong> 솔루션, 소프트웨어개발, SI<br>
+                    <strong>모바일·APP:</strong> 모바일App, 증강현실, 모바일, 아이폰, 안드로이드
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2025 진영화. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="mailto:timotolkie@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/nav.js"></script>
 </body>
 </html>

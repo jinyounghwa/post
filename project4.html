@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="URL AB Test - URL 기반 A/B 테스트 도구">
+    <meta name="keywords" content="URL AB Test, A/B 테스트, 웹 최적화, 진영화, 사이드 프로젝트">
+    <meta name="author" content="진영화">
+    
+    <!-- 오픈그래프 태그 -->
+    <meta property="og:title" content="URL AB Test - URL 기반 A/B 테스트 도구">
+    <meta property="og:description" content="웹사이트의 다양한 버전을 테스트하고 최적화할 수 있는 A/B 테스트 도구입니다.">
+    <meta property="og:image" content="sidepageimage/abtest.jpg">
+    <meta property="og:url" content="https://example.com/project4.html">
+    <meta property="og:type" content="website">
+    
+    <title>URL AB Test - URL 기반 A/B 테스트 도구</title>
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">진영화의 사이드 프로젝트</div>
+            <button id="theme-toggle" class="theme-toggle">☀️</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 뒤로가기 버튼 -->
+        <div class="back-button-container">
+            <a href="projects.html" class="back-button"><span class="material-icons">arrow_back</span> 프로젝트 목록으로 이동하기</a>
+        </div>
+
+        <!-- 프로젝트 상세 섹션 -->
+        <section class="project-detail-section">
+            <img src="sidepageimage/abtest.jpg" alt="URL AB Test 프로젝트" class="project-detail-image">
+            <h1 class="project-detail-title">URL AB Test - URL 기반 A/B 테스트 도구</h1>
+            
+            <div class="project-detail-info">
+                <p><strong>개발 기간:</strong> 2025년 5월</p>
+                <p><strong>사용 기술:</strong> JavaScript, React, Node.js, Express, Google Analytics API</p>
+                <p><strong>주요 기능:</strong> A/B 테스트 설정, 트래픽 분배, 데이터 수집 및 분석, 결과 시각화</p>
+            </div>
+            
+            <div class="project-detail-description">
+                <h2>프로젝트 소개</h2>
+                <p>
+                    URL AB Test는 웹사이트 운영자가 쉽게 A/B 테스트를 설정하고 실행할 수 있는 도구입니다. 
+                    웹페이지의 다양한 버전을 테스트하여 어떤 디자인, 콘텐츠, 기능이 
+                    사용자 참여도와 전환율을 높이는지 데이터 기반으로 판단할 수 있게 도와줍니다.
+                </p>
+                <p>
+                    이 도구는 URL 기반으로 작동하여 복잡한 코드 수정 없이도 
+                    웹사이트의 여러 버전을 테스트할 수 있으며, 
+                    트래픽을 설정한 비율에 따라 자동으로 분배합니다. 
+                    또한 사용자 행동 데이터를 수집하고 분석하여 
+                    어떤 버전이 더 효과적인지 명확한 인사이트를 제공합니다.
+                </p>
+                
+                <h2>주요 기능</h2>
+                <ul>
+                    <li>URL 기반 A/B 테스트 설정</li>
+                    <li>트래픽 비율 설정 및 자동 분배</li>
+                    <li>사용자 행동 데이터 수집 (페이지 체류 시간, 클릭률, 전환율 등)</li>
+                    <li>실시간 데이터 모니터링</li>
+                    <li>통계적 유의성 분석</li>
+                    <li>테스트 결과 시각화 및 리포트 생성</li>
+                    <li>Google Analytics 연동</li>
+                </ul>
+                
+                <h2>개발 과정</h2>
+                <p>
+                    이 프로젝트는 웹사이트 최적화 작업 중 A/B 테스트의 중요성을 인식하고, 
+                    기존 도구들의 복잡성과 비용 문제를 해결하기 위해 시작되었습니다. 
+                    React를 사용하여 직관적인 관리자 대시보드를 개발하고, 
+                    Node.js와 Express로 백엔드 API를 구축했습니다.
+                </p>
+                <p>
+                    개발 과정에서 가장 중요하게 고려한 부분은 테스트의 정확성과 사용 편의성이었습니다. 
+                    정확한 트래픽 분배를 위해 쿠키 기반의 사용자 식별 시스템을 구현했으며, 
+                    통계적 유의성을 판단하기 위한 알고리즘도 개발했습니다. 
+                    또한 Google Analytics API와 연동하여 기존 분석 도구와의 호환성을 높였습니다.
+                </p>
+                <p>
+                    사용자 피드백을 통해 지속적으로 기능을 개선하고 있으며, 
+                    특히 비개발자도 쉽게 사용할 수 있는 인터페이스 설계에 많은 노력을 기울였습니다. 
+                    현재는 다양한 마케팅 도구와의 통합을 위한 플러그인 시스템을 개발 중입니다.
+                </p>
+            </div>
+            
+            <div class="project-links">
+                <a href="https://github.com/jinyounghwa/URLABtest" target="_blank" class="github-link">
+                    <span class="material-icons">code</span> GitHub 저장소 방문하기
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2025 진영화. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="mailto:timotolkie@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="js/main.js"></script>
+</body>
+</html>

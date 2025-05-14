@@ -133,12 +133,48 @@ header {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .contact-info a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.side-project-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.side-project-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* 모바일 환경 대응 */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contact-info a {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    
+    .side-project-btn {
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        text-align: center;
+        justify-content: center;
+    }
 }
 
 .project-link {

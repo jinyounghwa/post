@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Side Project Calendar - 사이드 프로젝트 일정 관리 도구">
+    <meta name="keywords" content="Side Project Calendar, 사이드 프로젝트, 일정 관리, 진영화, 사이드 프로젝트">
+    <meta name="author" content="진영화">
+    
+    <!-- 오픈그래프 태그 -->
+    <meta property="og:title" content="Side Project Calendar - 사이드 프로젝트 일정 관리 도구">
+    <meta property="og:description" content="사이드 프로젝트의 일정과 진행 상황을 효율적으로 관리할 수 있는 도구입니다.">
+    <meta property="og:image" content="sidepageimage/cal.jpg">
+    <meta property="og:url" content="https://example.com/project5.html">
+    <meta property="og:type" content="website">
+    
+    <title>Side Project Calendar - 사이드 프로젝트 일정 관리 도구</title>
+    
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">진영화의 사이드 프로젝트</div>
+            <button id="theme-toggle" class="theme-toggle">☀️</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 뒤로가기 버튼 -->
+        <div class="back-button-container">
+            <a href="projects.html" class="back-button"><span class="material-icons">arrow_back</span> 프로젝트 목록으로 이동하기</a>
+        </div>
+
+        <!-- 프로젝트 상세 섹션 -->
+        <section class="project-detail-section">
+            <img src="sidepageimage/cal.jpg" alt="Side Project Calendar 프로젝트" class="project-detail-image">
+            <h1 class="project-detail-title">Side Project Calendar - 사이드 프로젝트 일정 관리 도구</h1>
+            
+            <div class="project-detail-info">
+                <p><strong>개발 기간:</strong> 2025년 5월</p>
+                <p><strong>사용 기술:</strong> HTML/CSS, JavaScript</p>
+                <p><strong>주요 기능:</strong> 프로젝트 일정 관리, 진행 상황 추적, 목표 설정, 알림 서비스</p>
+            </div>
+            
+            <div class="project-detail-description">
+                <h2>프로젝트 소개</h2>
+                <p>
+                    Side Project Calendar는 개발자, 디자이너, 창작자들이 자신의 사이드 프로젝트를 
+                    효율적으로 계획하고 관리할 수 있도록 도와주는 캘린더 기반 도구입니다. 
+                    바쁜 일상 속에서도 사이드 프로젝트를 꾸준히 진행할 수 있도록 
+                    일정 관리, 목표 설정, 진행 상황 추적 기능을 제공합니다.
+                </p>
+                <p>
+                    이 도구는 단순한 일정 관리를 넘어, 사이드 프로젝트의 특성을 고려한 
+                    다양한 기능을 제공합니다. 프로젝트별 진행 상황을 시각적으로 확인할 수 있고, 
+                    작업 시간을 기록하여 프로젝트에 투자한 시간을 분석할 수 있으며, 
+                    설정한 목표에 따라 알림을 받을 수 있습니다.
+                </p>
+                
+                <h2>주요 기능</h2>
+                <ul>
+                    <li>프로젝트별 일정 관리 및 시각화</li>
+                    <li>작업 시간 기록 및 분석</li>
+                    <li>목표 설정 및 진행 상황 추적</li>
+                    <li>마일스톤 관리</li>
+                    <li>알림 및 리마인더 설정</li>
+                    <li>프로젝트 통계 및 인사이트 제공</li>
+                    <li>다른 일정 관리 도구와 연동 (Google Calendar, Trello 등)</li>
+                </ul>
+                
+                <h2>개발 과정</h2>
+                <p>
+                    이 프로젝트는 개인적으로 여러 사이드 프로젝트를 진행하면서 
+                    체계적인 관리의 필요성을 느껴 시작하게 되었습니다. 
+                    Vue.js와 Vuex를 사용하여 반응형 사용자 인터페이스를 개발하고, 
+                    Firebase를 활용하여 실시간 데이터 동기화와 사용자 인증을 구현했습니다.
+                </p>
+                <p>
+                    캘린더 기능은 FullCalendar.js 라이브러리를 기반으로 개발했으며, 
+                    사이드 프로젝트의 특성에 맞게 커스터마이징했습니다. 
+                    특히 불규칙한 작업 패턴을 고려한 유연한 일정 관리 기능과 
+                    진행 상황을 직관적으로 파악할 수 있는 시각화 요소에 중점을 두었습니다.
+                </p>
+                <p>
+                    또한 PWA(Progressive Web App) 기술을 적용하여 
+                    모바일 환경에서도 네이티브 앱과 유사한 경험을 제공하고, 
+                    오프라인에서도 기본적인 기능을 사용할 수 있도록 했습니다. 
+                    사용자 피드백을 통해 지속적으로 기능을 개선하고 있으며, 
+                    현재는 팀 협업 기능을 개발 중입니다.
+                </p>
+            </div>
+            
+            <div class="project-links">
+                <a href="https://github.com/jinyounghwa/sideproject" target="_blank" class="github-link">
+                    <span class="material-icons">code</span> GitHub 저장소 방문하기
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container">
+            <p class="footer-text">© 2025 진영화. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="mailto:timotolkie@gmail.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="js/main.js"></script>
+</body>
+</html>

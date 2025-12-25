@@ -1,256 +1,262 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { 
-  Zap, 
-  Lightbulb, 
-  Rocket, 
-  Globe, 
+  ArrowRight, 
+  Layers, 
   Smartphone, 
   Bot, 
   Mail, 
   Github, 
-  CheckCircle2, 
-  ExternalLink,
-  ChevronRight
+  Code2,
+  ExternalLink
 } from "lucide-react";
+import { useRef } from "react";
 
 const fadeIn = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 0.8, ease: "easeOut" }
+} as const;
 
 export default function Home() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
   return (
-    <div className="flex flex-col w-full bg-grid">
+    <div ref={containerRef} className="flex flex-col w-full overflow-hidden">
+      
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-16">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-bg.png"
-            alt="Hero Background"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
-        </div>
+      <section id="home" className="relative min-h-screen flex flex-col justify-center items-center pt-24 pb-20 px-6">
+        <motion.div 
+          style={{ y: backgroundY, opacity: 0.6 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"
+        ></motion.div>
         
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-              기획부터 배포까지, <br />
-              <span className="text-gradient">완성도 높은 솔루션</span>을 제공합니다
-            </h1>
-            <p className="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-              14년의 IT 기획 경험과 최신 개발 기술로 <br className="md:hidden" />
-              비즈니스 아이디어를 현실로 만듭니다.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#portfolio" className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/25">
-                포트폴리오 보기
-              </a>
-              <a href="#contact" className="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
-                협업 문의하기
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Key Strengths */}
-      <section className="py-24 px-6 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { icon: Zap, title: "원스톱 솔루션", desc: "기획부터 디자인, 개발, 배포까지 일관된 품질 관리", color: "text-yellow-400" },
-              { icon: Lightbulb, title: "비즈니스 중심 개발", desc: "14년 기획 경력으로 사용자와 비즈니스 목표를 이해하는 개발", color: "text-blue-400" },
-              { icon: Rocket, title: "최신 기술 적용", desc: "AI/LLM, NestJS 등 트렌디한 기술 스택 활용", color: "text-purple-400" },
-            ].map((strength, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeIn}
-                transition={{ delay: idx * 0.1 }}
-                className="glass p-8 rounded-3xl hover:border-primary/50 transition-colors group"
-              >
-                <strength.icon className={`w-12 h-12 ${strength.color} mb-6 group-hover:scale-110 transition-transform`} />
-                <h3 className="text-xl font-bold mb-4">{strength.title}</h3>
-                <p className="text-zinc-400 leading-relaxed">{strength.desc}</p>
-              </motion.div>
-            ))}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 text-center max-w-5xl mx-auto"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 border-primary/30">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+            </span>
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary">Available for new projects</span>
           </div>
-        </div>
-      </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24 px-6 bg-zinc-950/30">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div {...fadeIn}>
-            <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto lg:mx-0">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl"></div>
-              <Image
-                src="/jin.jpg"
-                alt="JinYoungHwa"
-                fill
-                className="rounded-3xl object-cover border-2 border-white/10 relative z-10"
-              />
-            </div>
-          </motion.div>
-          
-          <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 italic">"기획자의 시각으로 개발하는 엔지니어"</h2>
-            <div className="space-y-6 text-zinc-400">
-              <p className="text-lg">
-                저는 14년 IT 경력을 가진 <span className="text-white font-semibold">진영화</span>입니다. 
-                웹 기획부터 VR/AR, 그리고 현재 풀스택 개발까지 비즈니스의 모든 단계를 경험했습니다.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                {[
-                  "비즈니스 목표와 기술 구현 동시 고려",
-                  "사용자 경험(UX) 최우선 개발",
-                  "요구사항 분석부터 배포까지 책임",
-                  "원활한 커뮤니케이션"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-primary" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+          <h1 className="text-6xl md:text-9xl font-bold tracking-tighter mb-8 leading-[0.9] break-keep">
+            상상을 <span className="text-gradient-primary italic pr-2">현실로,</span> <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">한계를 넘어선 구축.</span>
+          </h1>
 
-      {/* Services Section */}
-      <section id="services" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">서비스 영역</h2>
-            <p className="text-zinc-400">아이디어를 현실로 바꾸는 최적의 솔루션을 제공합니다.</p>
+          <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed break-keep">
+            복잡한 비즈니스 문제를 <span className="text-white font-semibold">우아하고 확장 가능한 솔루션</span>으로 전환하는 <br className="hidden md:block" />
+            기획자 & 개발자 입니다.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6">
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#portfolio" 
+              className="px-8 py-4 bg-white text-black rounded-full font-bold uppercase tracking-widest hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.7)] transition-all flex items-center gap-2"
+            >
+              프로젝트 보기
+              <ArrowRight className="w-5 h-5" />
+            </motion.a>
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact" 
+              className="px-8 py-4 glass-panel rounded-full text-white font-bold uppercase tracking-widest hover:bg-white/10 transition-all"
+            >
+              문의하기
+            </motion.a>
           </div>
-          
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 flex flex-col items-center gap-2 opacity-50"
+        >
+          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-transparent via-white to-transparent"></div>
+        </motion.div>
+      </section>
+
+      {/* Stats / Tech Stack Marquee */}
+      <section className="py-12 border-y border-white/5 bg-black/20 backdrop-blur-sm overflow-hidden">
+        <div className="flex gap-12 whitespace-nowrap animate-[marquee_20s_linear_infinite]">
+          {[...Array(2)].map((_, i) => (
+             <div key={i} className="flex gap-12 text-4xl md:text-6xl font-bold text-white/5 uppercase tracking-tighter">
+               <span>Next.js</span> <span>•</span> <span>React</span> <span>•</span> <span>TypeScript</span> <span>•</span> <span>Node.js</span> <span>•</span> <span>AI Integration</span> <span>•</span> <span>Tailwind</span> <span>•</span>
+             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Core Services */}
+      <section id="services" className="py-32 px-6 relative">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div {...fadeIn} className="mb-24">
+            <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-4">Core Services</h2>
+            <h3 className="text-5xl md:text-7xl font-bold tracking-tighter break-keep">
+              기술적 탁월함을 <br />
+              <span className="text-gradient">제공합니다.</span>
+            </h3>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
-                icon: Globe, 
-                title: "웹 서비스 개발", 
-                items: ["쇼핑몰 구축 (결제 연동)", "기업 홈페이지 제작", "CMS/관리자 시스템", "반응형 웹 디자인"] 
-              },
-              { 
-                icon: Smartphone, 
-                title: "모바일 앱 개발", 
-                items: ["iOS/Android 크로스 플랫폼", "네이티브 iOS 개발 (Swift)", "앱스토어 출시 및 운영", "푸시 알림 구현"] 
+                icon: Layers, 
+                title: "Full-Stack Dev", 
+                desc: "최신 프레임워크 기반의 엔드투엔드 웹 애플리케이션 구축. 성능 최적화, SEO, 그리고 압도적인 확장성을 보장합니다.",
+                tags: ["Next.js", "Node.js", "PostgreSQL"]
               },
               { 
                 icon: Bot, 
-                title: "AI 활용 서비스", 
-                items: ["AI 댓글 자동 작성", "LLM 챗봇 개발 (RAG)", "Ollama + API 하이브리드", "문서 요약 및 분석"] 
-              }
-            ].map((service, idx) => (
+                title: "AI Engineering", 
+                desc: "LLM과 AI 에이전트를 실제 비즈니스 워크플로우에 통합합니다. RAG 파이프라인 설계부터 파인튜닝, 업무 자동화까지.",
+                tags: ["LangChain", "OpenAI", "Python"]
+              },
+              { 
+                icon: Smartphone, 
+                title: "Native Mobile", 
+                desc: "고성능 iOS 및 Android 애플리케이션을 개발합니다. Swift 네이티브 구현부터 효율적인 크로스 플랫폼 솔루션 제안까지.",
+                tags: ["SwiftUI", "React Native", "Flutter"]
+              },
+            ].map((s, i) => (
               <motion.div
-                key={idx}
-                {...fadeIn}
-                transition={{ delay: idx * 0.1 }}
-                className="glass p-8 rounded-3xl"
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="glass-card p-10 rounded-2xl group cursor-pointer relative overflow-hidden"
               >
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-primary" />
+                <div className="absolute top-0 right-0 p-32 bg-primary/20 blur-[80px] rounded-full group-hover:bg-secondary/20 transition-colors duration-500 opacity-0 group-hover:opacity-100"></div>
+                
+                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center mb-8 border border-white/10 group-hover:scale-110 transition-transform duration-500">
+                  <s.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-6">{service.title}</h3>
-                <ul className="space-y-3">
-                  {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-zinc-400">
-                      <ChevronRight className="w-5 h-5 text-zinc-600 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
+                
+                <h4 className="text-2xl font-bold mb-4">{s.title}</h4>
+                <p className="text-gray-400 leading-relaxed mb-8 break-keep">{s.desc}</p>
+                
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {s.tags.map(tag => (
+                    <span key={tag} className="px-3 py-1 bg-white/5 rounded-full text-xs font-mono text-primary/80 border border-white/5">
+                      {tag}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <section id="portfolio" className="py-24 px-6 bg-zinc-950/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">포트폴리오</h2>
-            <p className="text-zinc-400">성공적으로 완료된 주요 프로젝트들입니다.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* Selected Works - Parallax/Sticky Style */}
+      <section id="portfolio" className="py-32 px-6">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div {...fadeIn} className="mb-24 flex items-end justify-between flex-wrap gap-8">
+            <div>
+              <h2 className="text-sm font-bold text-secondary uppercase tracking-widest mb-4">Portfolio</h2>
+              <h3 className="text-5xl md:text-7xl font-bold tracking-tighter">
+                Selected <span className="text-gradient-primary">Works.</span>
+              </h3>
+            </div>
+            <a href="https://github.com/jinyounghwa" target="_blank" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+              Github 방문 <ExternalLink className="w-4 h-4" />
+            </a>
+          </motion.div>
+
+          <div className="space-y-32">
             {[
               {
+                id: "srpg-todo",
                 title: "SRPG TODO",
-                tag: "iOS / Productivity",
+                category: "Swift iOS",
+                desc: "RPG 요소를 도입하여 생산성을 게임화한 할 일 관리 앱입니다. Swift와 CoreData를 사용하여 구축되었으며, 사용자의 동기 부여를 극대화합니다.",
                 image: "/images/srpg-todo.png",
-                desc: "일본 SRPG 미학과 생산성의 결합. 캐릭터 육성형 할 일 관리 앱.",
-                tech: ["React Native", "NestJS", "PostgreSQL"],
-                link: "#"
+                color: "from-blue-600 to-cyan-500",
+                tags: ["Swift", "SwiftUI", "CoreData"]
               },
               {
-                title: "하이브리드 AI 챗봇",
-                tag: "AI / LLM",
+                id: "enterprise-ai-agent",
+                title: "Enterprise AI",
+                category: "B2B SaaS / AI",
+                desc: "고객 지원 티켓을 자동으로 처리하고 내부 워크플로우를 자동화하는 자율 AI 에이전트 시스템입니다. 기업의 운영 비용을 획기적으로 절감합니다.",
                 image: "/images/local-ai.png",
-                desc: "Ollama 로컬 AI와 Claude API를 결합한 고효율 챗봇 시스템.",
-                tech: ["Ollama", "Claude API", "LangChain", "Next.js"],
-                link: "#"
+                color: "from-purple-600 to-pink-500",
+                tags: ["Python", "LangChain", "Next.js"]
               },
               {
-                title: "AI 댓글 자동 작성",
-                tag: "AI / Automation",
-                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-                desc: "소셜 미디어 고객 문의 대응 자동화. 브랜드 톤앤매너 학습 및 자동 답변.",
-                tech: ["Claude API", "NLP", "Automation"],
-                link: "#"
-              },
-              {
-                title: "TriPath (개발 중)",
-                tag: "Career / AI",
+                id: "tripath-career",
+                title: "TriPath Career",
+                category: "EdTech Platform",
+                desc: "AI 기반 매칭 알고리즘을 통해 멘토와 멘티를 연결하는 커리어 개발 플랫폼입니다. 맞춤형 로드맵 추천 기능을 포함합니다.",
                 image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-                desc: "Donald Lee의 7:2:1 프레임워크 기반 AI 시대 커리어 전환 가이드.",
-                tech: ["Next.js 16", "NestJS", "PostgreSQL"],
-                link: "#"
-              },
-            ].map((project, idx) => (
-              <motion.div
-                key={idx}
-                {...fadeIn}
-                className="group relative overflow-hidden rounded-3xl glass"
+                color: "from-emerald-600 to-teal-500",
+                tags: ["Next.js", "TypeScript", "WebRTC"]
+              }
+            ].map((project, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.8 }}
+                className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
-                <div className="aspect-video relative overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                <div className={`relative aspect-[4/3] rounded-3xl overflow-hidden glass-card border-0 ${i % 2 === 1 ? 'lg:order-last' : ''}`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}></div>
+                  {/* Image Placeholder */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white/20 text-9xl font-black uppercase tracking-tighter mix-blend-overlay">
+                    {project.title.split(' ')[0]}
+                  </div>
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
                 </div>
-                <div className="p-8">
-                  <div className="text-primary text-sm font-bold mb-2 uppercase tracking-wider">{project.tag}</div>
-                  <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                
+                <div className="space-y-8">
+                  <span className="text-secondary font-mono text-sm tracking-widest uppercase">
+                    0{i+1} / {project.category}
+                  </span>
+                  <h3 className="text-4xl md:text-6xl font-bold leading-tight">
                     {project.title}
-                    <ExternalLink className="w-5 h-5 text-zinc-500" />
                   </h3>
-                  <p className="text-zinc-400 mb-6 leading-relaxed">
+                  <p className="text-gray-400 text-lg leading-relaxed max-w-md break-keep">
                     {project.desc}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t, i) => (
-                      <span key={i} className="px-3 py-1 bg-white/5 rounded-full text-xs text-zinc-300 border border-white/10 uppercase">
-                        {t}
-                      </span>
+                  <ul className="flex flex-wrap gap-4">
+                    {project.tags.map(t => (
+                      <li key={t} className="text-sm font-bold text-white/60 border-b border-white/20 pb-1">{t}</li>
                     ))}
+                  </ul>
+                  <div className="pt-4">
+                    <Link href={`/projects/${project.id}`} className="flex items-center gap-3 text-white font-bold uppercase tracking-widest hover:gap-6 transition-all group-hover:text-primary">
+                      사례 연구 보기 <ArrowRight className="w-5 h-5" />
+                    </Link>
                   </div>
                 </div>
               </motion.div>
@@ -259,78 +265,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-24 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">진행 프로세스</h2>
-            <p className="text-zinc-400">명확한 단계별 진행으로 신뢰할 수 있는 결과를 만듭니다.</p>
-          </div>
-          
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-zinc-800 md:-translate-x-1/2"></div>
-            
-            <div className="space-y-16">
-              {[
-                { step: "01", title: "상담 및 요구사항 분석", desc: "비즈니스 목표 확인 및 기능 범위 정의" },
-                { step: "02", title: "기획 및 설계", desc: "화면 설계서 작성, DB 스키마 및 API 명세 설계" },
-                { step: "03", title: "개발", desc: "애자일 방식 진행, 주간 진행상황 공유 및 테스트" },
-                { step: "04", title: "배포 및 운영", desc: "서버 배포, 앱스토어 출시 지원 및 매뉴얼 제공" },
-                { step: "05", title: "유지보수", desc: "버그 수정, 기능 추가 및 성능 모니터링" },
-              ].map((process, idx) => (
-                <motion.div
-                  key={idx}
-                  {...fadeIn}
-                  className={`flex items-start md:items-center gap-8 ${idx % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
-                >
-                  <div className={`flex-1 hidden md:block ${idx % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    <div className="glass p-6 rounded-2xl inline-block max-w-sm">
-                      <h4 className="text-xl font-bold mb-2">{process.title}</h4>
-                      <p className="text-zinc-500 text-sm leading-relaxed">{process.desc}</p>
-                    </div>
-                  </div>
+      {/* About Section - Bento Grid Style */}
+      <section id="about" className="py-32 px-6 bg-black/30 backdrop-blur-md">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
+            <motion.div 
+              {...fadeIn}
+              className="md:col-span-2 md:row-span-2 glass-card rounded-3xl p-12 flex flex-col justify-between"
+            >
+              <div>
+                <h3 className="text-4xl font-bold mb-6">About Me</h3>
+                <p className="text-gray-400 text-lg leading-relaxed mb-6 break-keep">
+                  <strong className="text-white">비즈니스 전략</strong>과 <strong className="text-white">기술적 실행</strong>의 간극을 잇는 14년의 경험을 보유하고 있습니다.
+                </p>
+                <p className="text-gray-400 text-lg leading-relaxed break-keep">
+                  단순히 코드를 작성하는 것에 그치지 않고, 현실의 문제를 해결하는 솔루션을 설계합니다. 기획자로서 축적된 제품 기획력은 작성되는 모든 코드가 철저히 '사용자의 니즈'를 향하도록 보장합니다.
+                </p>
+              </div>
+            </motion.div>
 
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center font-bold text-white relative z-10 shrink-0 shadow-lg shadow-primary/40 ring-4 ring-background">
-                    {process.step}
-                  </div>
+            <motion.div 
+              {...fadeIn} 
+              transition={{ delay: 0.2 }}
+              className="md:col-span-1 glass-card rounded-3xl p-8 flex flex-col justify-center items-center text-center group hover:bg-white/5 transition-colors"
+            >
+              <div className="text-6xl font-black text-gradient mb-2 group-hover:scale-110 transition-transform">14+</div>
+              <div className="text-sm font-bold uppercase tracking-widest text-gray-500">Years Exp.</div>
+            </motion.div>
 
-                  <div className="flex-1 text-left">
-                    <div className="md:hidden">
-                      <h4 className="text-xl font-bold mb-1">{process.title}</h4>
-                      <p className="text-zinc-500 text-sm leading-relaxed">{process.desc}</p>
-                    </div>
-                    <div className={`hidden md:block ${idx % 2 === 1 ? 'text-left' : 'text-right'}`}>
-                      <div className="glass p-6 rounded-2xl inline-block max-w-sm">
-                        <h4 className="text-xl font-bold mb-2">{process.title}</h4>
-                        <p className="text-zinc-500 text-sm leading-relaxed">{process.desc}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <motion.div 
+              {...fadeIn}
+              transition={{ delay: 0.3 }}
+              className="md:col-span-1 glass-card rounded-3xl p-8 flex flex-col justify-center items-center text-center group hover:bg-white/5 transition-colors"
+            >
+              <div className="text-6xl font-black text-gradient-primary mb-2 group-hover:scale-110 transition-transform">다수의</div>
+              <div className="text-sm font-bold uppercase tracking-widest text-gray-500">프로젝트</div>
+            </motion.div>
+
+            <motion.div 
+              {...fadeIn}
+              transition={{ delay: 0.4 }}
+              className="md:col-span-2 glass-card rounded-3xl p-8 relative overflow-hidden flex items-center"
+            >
+              <div className="relative z-10 w-full">
+                <h4 className="text-2xl font-bold mb-6">Tech Stack</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["React", "Next.js", "TypeScript", "Node.js", "Python", "Swift", "AWS", "Docker", "PostgreSQL", "MongoDB", "Redis", "GraphQL"].map((tech, i) => (
+                    <span key={i} className="px-3 py-1 bg-white/10 rounded-lg text-sm font-medium hover:bg-white/20 transition-colors cursor-default">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
-        <div className="max-w-3xl mx-auto glass p-12 md:p-20 rounded-[4rem] text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">내일의 비즈니스를 <br /><span className="text-gradient">함께 고민합니다</span></h2>
-          <p className="text-zinc-400 mb-12 text-lg">
-            프로젝트 문의, 협업 제안 등 어떤 이야기든 환영합니다. <br />
-            24시간 내에 성심껏 답변해 드리겠습니다.
+      {/* CTA / Contact */}
+      <section id="contact" className="py-48 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.h2 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-6xl md:text-8xl font-black tracking-tighter mb-8 break-keep"
+          >
+            미래를 함께 <br />
+            <span className="text-gradient">만들어갑시다.</span>
+          </motion.h2>
+          <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto break-keep">
+            당신의 비전을 현실로 만들 준비가 되셨나요? <br className="hidden md:block" />
+            현재 프로젝트 및 기술 컨설팅 의뢰를 받고 있습니다.
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a href="mailto:timotolkie@gmail.com" className="flex items-center gap-3 px-8 py-4 bg-primary rounded-full font-bold hover:scale-105 transition-all w-full md:w-auto justify-center">
+            <a href="mailto:timotolkie@gmail.com" className="w-full md:w-auto px-10 py-5 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform flex items-center justify-center gap-3">
               <Mail className="w-5 h-5" />
-              Email Contact
+              이메일 보내기
             </a>
-            <a href="https://github.com/jinyounghwa" target="_blank" className="flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-white/10 transition-all w-full md:w-auto justify-center">
+            <a href="https://github.com/jinyounghwa" target="_blank" className="w-full md:w-auto px-10 py-5 glass-panel rounded-full font-bold text-lg hover:bg-white/10 transition-colors flex items-center justify-center gap-3">
               <Github className="w-5 h-5" />
-              GitHub
+              Github
             </a>
           </div>
         </div>

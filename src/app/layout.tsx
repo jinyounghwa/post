@@ -1,38 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const outfit = Outfit({ 
+  subsets: ["latin"], 
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-outfit"
+});
+
+const inter = Inter({ 
+  subsets: ["latin"], 
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-inter"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jinyounghwa.github.io/post"),
-  title: "JinYoungHwa | Developer & Product Planner",
-  description: "14년의 기획 경험과 최신 개발 기술로 완성도 높은 솔루션을 제공하는 1인 풀스택 개발팀",
-  keywords: ["풀스택 개발", "AI 개발", "LLM", "Next.js", "NestJS", "iOS 개발", "기획자 출신 개발자"],
-  authors: [{ name: "JinYoungHwa" }],
-  openGraph: {
-    title: "JinYoungHwa | Developer & Product Planner",
-    description: "14년의 기획 경험과 최신 개발 기술로 완성도 높은 솔루션을 제공하는 1인 풀스택 개발팀",
-    url: "https://jinyounghwa.github.io/post", // Example URL, replace if needed
-    siteName: "JinYoungHwa Portfolio",
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "JinYoungHwa Developer Portfolio",
-      },
-    ],
-    locale: "ko_KR",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "JinYoungHwa | Developer & Product Planner",
-    description: "14년의 기획 경험과 최신 개발 기술로 완성도 높은 솔루션을 제공하는 1인 풀스택 개발팀",
-    images: ["/images/og-image.png"],
-  },
+  title: "JINYH | Creative Developer",
+  description: "Crafting digital experiences with code and creativity.",
 };
 
 export default function RootLayout({
@@ -41,13 +27,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="scroll-smooth">
-      <body className={`${inter.className} antialiased bg-background text-foreground`}>
+    <html lang="ko" className={`scroll-smooth ${outfit.variable} ${inter.variable}`}>
+      <body className="antialiased bg-background text-foreground relative selection:bg-primary selection:text-white">
+        <div className="mesh-bg">
+          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/20 blur-[120px] rounded-full animate-[blob_7s_infinite] mix-blend-screen"></div>
+          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/20 blur-[120px] rounded-full animate-[blob_7s_infinite_2s] mix-blend-screen"></div>
+          <div className="absolute top-[40%] left-[30%] w-[30%] h-[30%] bg-accent/20 blur-[100px] rounded-full animate-[blob_7s_infinite_4s] mix-blend-screen"></div>
+        </div>
+        <div className="cosmic-grid fixed inset-0 z-[-1] opacity-30 pointer-events-none"></div>
         <Navbar />
-        <main>{children}</main>
-        <footer className="py-12 border-t border-white/5 bg-zinc-950/50">
-          <div className="max-w-7xl mx-auto px-6 text-center text-zinc-500 text-sm">
-            <p>© 2025 JinYoungHwa. All rights reserved.</p>
+        <main className="min-h-screen pt-20">{children}</main>
+        <footer className="py-12 glass-panel border-t border-glass-border mt-20">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-2xl font-bold tracking-tighter text-white">JIN.</div>
+            <div className="text-sm text-gray-400">© 2025 Jinyounghwa. Crafted with Cosmic Glass.</div>
           </div>
         </footer>
       </body>

@@ -11,7 +11,8 @@ import {
   Mail, 
   Github, 
   Code2,
-  ExternalLink
+  ExternalLink,
+  Zap
 } from "lucide-react";
 import { useRef } from "react";
 
@@ -134,10 +135,10 @@ export default function Home() {
                 tags: ["LangChain", "OpenAI", "Python"]
               },
               { 
-                icon: Smartphone, 
-                title: "Native Mobile", 
-                desc: "고성능 iOS 및 Android 애플리케이션을 개발합니다. Swift 네이티브 구현부터 효율적인 크로스 플랫폼 솔루션 제안까지.",
-                tags: ["SwiftUI", "React Native", "Flutter"]
+                icon: Zap, 
+                title: "Business Automation", 
+                desc: "n8n 등 자동화 툴을 활용하여 비즈니스 프로세스를 최적화합니다. 상담부터 기능 추출, 워크스페이스 구축 및 시스템 세팅까지 전 과정을 지원합니다.",
+                tags: ["n8n", "Workflow", "API Optimization"]
               },
             ].map((s, i) => (
               <motion.div
@@ -214,6 +215,15 @@ export default function Home() {
                 image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
                 color: "from-emerald-600 to-teal-500",
                 tags: ["Next.js", "TypeScript", "WebRTC"]
+              },
+              {
+                id: "business-automation",
+                title: "Business Automation",
+                category: "Consulting & Implementation",
+                desc: "상담 후 기능추출 및 워크스페이스 시스템 작성과 시스템 세팅까지 모두 만들어 드립니다. n8n을 활용하여 복잡한 업무를 자동화하고 효율적인 원스톱 시스템을 구축합니다.",
+                image: "/images/automation.png",
+                color: "from-orange-600 to-yellow-500",
+                tags: ["n8n", "Workflow", "Automation"]
               }
             ].map((project, i) => (
               <motion.div 

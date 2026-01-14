@@ -76,6 +76,29 @@ const projects = {
     },
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
     color: "from-emerald-600 to-teal-500"
+  },
+  "business-automation": {
+    title: "Business Automation",
+    category: "Consulting & Implementation",
+    description: `
+      비즈니스 프로세스를 철저히 분석하여 맞춤형 자동화 워크플로우를 구축하는 통합 솔루션 서비스입니다.
+      단순 반복 업무부터 복잡한 시스템 통합까지, n8n과 다양한 API를 활용하여 운영 효율을 퀀텀 점프시킵니다.
+      상담을 통해 핵심 기능을 추출하고, 전용 워크스페이스 구축부터 최적화된 시스템 세팅까지 원스톱으로 제공합니다.
+    `,
+    details: [
+      "심층 상담을 통한 비즈니스 로직 및 병목 구간 분석",
+      "n8n을 활용한 고도화된 업무 자동화 시나리오 설계 및 구현",
+      "SaaS 도구(Slack, Notion, Gmail 등) 간의 유기적인 데이터 동기화",
+      "개인 및 팀을 위한 맞춤형 워크스페이스 환경 구축 및 교육"
+    ],
+    stack: ["n8n", "Make", "REST API", "JavaScript"],
+    period: "2025 상시",
+    links: {
+      github: "https://github.com/jinyounghwa",
+      live: "#"
+    },
+    image: "/images/automation.png",
+    color: "from-orange-600 to-yellow-500"
   }
 };
 

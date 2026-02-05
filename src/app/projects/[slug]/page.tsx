@@ -92,13 +92,36 @@ const projects = {
       "개인 및 팀을 위한 맞춤형 워크스페이스 환경 구축 및 교육"
     ],
     stack: ["n8n", "Make", "REST API", "JavaScript"],
-    period: "2025 상시",
+    period: "2026 상시",
     links: {
       github: "https://github.com/jinyounghwa",
       live: "#"
     },
     image: "/images/automation.png",
     color: "from-orange-600 to-yellow-500"
+  },
+  "chat-orchestration": {
+    title: "Chat Orchestration",
+    category: "AI Automation & System Control",
+    description: `
+      로컬에서 동작하는 시스템과 Chat을 연결하여 정보 조회는 물론 컴퓨터를 제어하여 업무를 처리하는 시스템입니다.
+      Chat을 시스템과 연결하여 검색은 물론 자동 견적서와 같은 AI 연동 통합 자동화 서비스입니다.
+      이미 구축된 시스템에 PC 제어 솔루션을 붙여, 사용자의 자연어 명령만으로 실제 업무 환경을 조작합니다.
+    `,
+    details: [
+      "로컬 및 클라우드 환경의 Chat 시스템과 하드웨어 제어 레이어 통합",
+      "오픈소스 엔진을 활용한 고수준 컴퓨터 조작 및 자동화",
+      "자연어 명령을 통한 파일 시스템 접근, 브라우저 제어 및 복잡한 워크플로우 수행",
+      "AI 기반 실시간 견적 분석 및 업무 보고서 자동 생성 파이프라인 구축"
+    ],
+    stack: ["Chat Solution", "Python", "Node.js", "Computer Control"],
+    period: "2026 상시",
+    links: {
+      github: "https://github.com/jinyounghwa",
+      live: "#"
+    },
+    image: "/images/chat-orchestration.png",
+    color: "from-red-600 to-rose-500"
   }
 };
 

@@ -224,6 +224,15 @@ export default function Home() {
                 image: "/images/automation.png",
                 color: "from-orange-600 to-yellow-500",
                 tags: ["n8n", "Workflow", "Automation"]
+              },
+              {
+                id: "chat-orchestration",
+                title: "Chat Orchestration",
+                category: "AI Automation & System Control",
+                desc: "로컬 시스템과 Chat을 연결하여 정보 조회는 물론 컴퓨터를 제어하여 업무를 처리하는 시스템입니다. 검색, 자동 견적서 작성 등 AI 연동 통합 자동화 서비스를 제공합니다. OpenClaw와 같은 시스템을 연동하여 PC 제어 기능을 극대화했습니다.",
+                image: "/images/chat-orchestration.png",
+                color: "from-red-600 to-rose-500",
+                tags: ["OpenClaw", "AI Orchestration", "Python", "Automation"]
               }
             ].map((project, i) => (
               <motion.div 

@@ -190,49 +190,44 @@ export default function Home() {
           <div className="space-y-32">
             {[
               {
-                id: "srpg-todo",
-                title: "SRPG TODO",
-                category: "Swift iOS",
-                desc: "RPG 요소를 도입하여 생산성을 게임화한 할 일 관리 앱입니다. Swift와 CoreData를 사용하여 구축되었으며, 사용자의 동기 부여를 극대화합니다.",
-                image: "/images/srpg-todo.png",
+                id: "ai-purchase-automation",
+                title: "AI 구매 자동화",
+                category: "AI Automation",
+                youtubeId: "S6ANgpDp1d0",
+                desc: "안티그라피티 스킬을 활용하여 제품 구매 사이트를 AI로 분석하고, 리포트 및 자동 메일을 발송하는 완전 자동화 파이프라인입니다.",
+                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
                 color: "from-blue-600 to-cyan-500",
-                tags: ["Swift", "SwiftUI", "CoreData"]
+                tags: ["AI Agent", "Python", "Automation", "Email API"]
               },
               {
-                id: "enterprise-ai-agent",
-                title: "Enterprise AI",
-                category: "B2B SaaS / AI",
-                desc: "고객 지원 티켓을 자동으로 처리하고 내부 워크플로우를 자동화하는 자율 AI 에이전트 시스템입니다. 기업의 운영 비용을 획기적으로 절감합니다.",
-                image: "/images/local-ai.png",
+                id: "local-ai-chatbot",
+                title: "AI 공부 보조 챗봇",
+                category: "Local AI / Education",
+                youtubeId: "Ls1mGq9O4t0",
+                desc: "클라우드 API 의존 없이 로컬로 구동되는 실시간 학습 보조 에이전트입니다. 데이터 프라이버시를 지키면서 강력한 맞춤형 과외 경험을 제공합니다.",
+                image: "https://images.unsplash.com/photo-1593642532744-d377ab507dc8?auto=format&fit=crop&q=80&w=800",
                 color: "from-purple-600 to-pink-500",
-                tags: ["Python", "LangChain", "Next.js"]
+                tags: ["Local LLM", "Next.js", "TypeScript", "Tailwind CSS"]
               },
               {
-                id: "tripath-career",
-                title: "TriPath Career",
-                category: "EdTech Platform",
-                desc: "AI 기반 매칭 알고리즘을 통해 멘토와 멘티를 연결하는 커리어 개발 플랫폼입니다. 맞춤형 로드맵 추천 기능을 포함합니다.",
-                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+                id: "ui-generator",
+                title: "UI 제네레이터",
+                category: "Development Tooling",
+                youtubeId: "Jx2ZFYIh3rM",
+                desc: "자연어 요구사항을 바탕으로 실제 동작하는 UI 컴포넌 코드를 실시간으로 생성해주는 프론트엔드 개발 생산성 극대화 솔루션입니다.",
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
                 color: "from-emerald-600 to-teal-500",
-                tags: ["Next.js", "TypeScript", "WebRTC"]
+                tags: ["React", "AI Code Generation", "TypeScript", "AST Parsing"]
               },
               {
-                id: "business-automation",
-                title: "Business Automation",
-                category: "Consulting & Implementation",
-                desc: "상담 후 기능추출 및 워크스페이스 시스템 작성과 시스템 세팅까지 모두 만들어 드립니다. n8n을 활용하여 복잡한 업무를 자동화하고 효율적인 원스톱 시스템을 구축합니다.",
-                image: "/images/automation.png",
+                id: "ai-agent-commerce",
+                title: "AI 에이전트 쇼핑몰",
+                category: "AI Commerce Platform",
+                youtubeId: "Ta-Ye6xiX08",
+                desc: "단순 키워드 검색을 넘어, 고객과 대화하며 성향을 파악하고 최적의 상품을 제안부터 결제까지 이끄는 에이전트 중심 커머스 데모입니다.",
+                image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800",
                 color: "from-orange-600 to-yellow-500",
-                tags: ["n8n", "Workflow", "Automation"]
-              },
-              {
-                id: "chat-orchestration",
-                title: "Chat Orchestration",
-                category: "AI Automation & System Control",
-                desc: "로컬 시스템과 Chat을 연결하여 정보 조회는 물론 컴퓨터를 제어하여 업무를 처리하는 시스템입니다. 검색, 자동 견적서 작성 등 AI 연동 통합 자동화 서비스를 제공합니다. OpenClaw와 같은 시스템을 연동하여 PC 제어 기능을 극대화했습니다.",
-                image: "/images/chat-orchestration.png",
-                color: "from-red-600 to-rose-500",
-                tags: ["OpenClaw", "AI Orchestration", "Python", "Automation"]
+                tags: ["Next.js", "AI Agent", "E-Commerce", "Vector DB"]
               }
             ].map((project, i) => (
               <motion.div 
@@ -243,18 +238,27 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
-                <div className={`relative aspect-[4/3] rounded-3xl overflow-hidden glass-card border-0 ${i % 2 === 1 ? 'lg:order-last' : ''}`}>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}></div>
-                  {/* Image Placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center text-white/20 text-9xl font-black uppercase tracking-tighter mix-blend-overlay">
-                    {project.title.split(' ')[0]}
-                  </div>
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover transition-transform duration-700 group-hover:scale-110" 
-                  />
+                <div className={`relative aspect-video rounded-3xl overflow-hidden glass-card border-none shadow-2xl ${i % 2 === 1 ? 'lg:order-last' : ''}`}>
+                  {project.youtubeId ? (
+                    <iframe 
+                      className="absolute inset-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${project.youtubeId}`} 
+                      title={`${project.title} Video`} 
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowFullScreen>
+                    </iframe>
+                  ) : (
+                    <>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}></div>
+                      <Image 
+                        src={project.image} 
+                        alt={project.title} 
+                        fill 
+                        className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                      />
+                    </>
+                  )}
                 </div>
                 
                 <div className="space-y-8">

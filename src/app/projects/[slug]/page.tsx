@@ -3,125 +3,82 @@
 import { use } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, Layers, Code2, Calendar } from "lucide-react";
+import { ArrowLeft, Layers, Code2, Calendar, Video } from "lucide-react";
 import { motion } from "framer-motion";
 
-// This data would typically come from a CMS or API
 const projects = {
-  "srpg-todo": {
-    title: "SRPG TODO",
-    category: "Swift iOS",
+  "ai-purchase-automation": {
+    title: "AI 구매 분석 자동화",
+    category: "AI Automation",
+    youtubeId: "S6ANgpDp1d0",
     description: `
-      생산성을 높이는 것이 왜 지루해야 할까요? SRPG TODO는 할 일 관리를 모험으로 바꿉니다.
-      사용자가 할 일을 완료할 때마다 경험치를 얻고 레벨업하며, 아이템을 수집하는 게이미피케이션 요소를 도입했습니다.
-      단순한 체크리스트를 넘어, 성취감을 시각화하고 지속적인 동기 부여를 제공하는 것을 목표로 기획 및 개발되었습니다.
+      안티그라피티 스킬을 활용하여 제품 구매 사이트를 AI로 분석하고, 그 결과를 바탕으로 리포트 및 자동 메일을 발송하는 워크플로우를 구축한 솔루션입니다.
+      단순한 웹 엑스트랙션을 넘어, AI 에이전트가 페이지의 의도와 핵심 정보를 파악하여 수작업 없이도 매끄러운 구매 프로세스 검토가 가능하도록 구성했습니다.
     `,
     details: [
-      "CoreData를 활용한 로컬 데이터 영속성 관리",
-      "MVVM 아키텍처 패턴 적용으로 유지보수성 향상",
-      "Combine 프레임워크를 이용한 반응형 UI 구현",
-      "복잡한 경험치 및 레벨링 시스템 로직 설계"
+      "웹 스크래핑 및 AI 기반 데이터 분석 파이프라인 연동",
+      "분석 결과에 따른 맞춤형 이메일 자동 생성 및 발송 엔진 구축",
+      "안티그라피티 스킬 활용을 통한 안정적인 에이전트 워크플로우 구성"
     ],
-    stack: ["Swift", "SwiftUI", "CoreData", "Combine"],
-    period: "2025 하반기",
-    links: {
-      github: "https://github.com/jinyounghwa/srpg-todo",
-      live: "#"
-    },
-    image: "/images/srpg-todo.png",
+    stack: ["AI Agent", "Python", "Automation", "Email API"],
+    period: "2026 상반기",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
     color: "from-blue-600 to-cyan-500"
   },
-  "enterprise-ai-agent": {
-    title: "Enterprise AI",
-    category: "B2B SaaS / AI",
+  "local-ai-chatbot": {
+    title: "AI 공부 보조 챗봇",
+    category: "Local AI / Education",
+    youtubeId: "Ls1mGq9O4t0",
     description: `
-      기업 고객 지원 업무의 60%를 자동화하는 대규모 언어 모델(LLM) 기반의 AI 에이전트 솔루션입니다.
-      단순한 챗봇이 아닌, 회사의 내부 문서를 학습(RAG)하여 정확한 답변을 제공하고, 
-      티켓 발급부터 1차 응대까지 수행하여 상담원의 업무 효율을 극대화했습니다.
+      외부 클라우드 API에 의존하지 않고, 로컬 환경에서 구동되는 AI 모델을 활용한 학습 보조 챗봇입니다.
+      사용자의 질문을 실시간으로 분석하고, 학습 가이드와 피드백을 즉각적으로 제공하여 학습 효율을 극대화합니다.
+      개인정보 보호가 중요한 학습 데이터를 외부로 유출하지 않고도 강력한 AI 어시스턴트 경험을 온전히 제공하는 데 집중했습니다.
     `,
     details: [
-      "LangChain 기반의 RAG(Retrieval-Augmented Generation) 파이프라인 구축",
-      "벡터 데이터베이스(Pinecone)를 활용한 고속 시맨틱 검색",
-      "프롬프트 엔지니어링을 통한 답변 정확도 95% 달성",
-      "Slack 및 Jira 연동을 통한 업무 자동화 워크플로우 구현"
+      "로컬 LLM 연동 및 프롬프트 엔지니어링 최적화",
+      "경량화된 AI 모델을 통한 실시간 대화형 인터페이스 지연 시간 최소화",
+      "학습 맥락 유지를 위한 세션 기반 대화 관리 시스템 구현"
     ],
-    stack: ["Python", "LangChain", "OpenAI API", "Next.js", "FastAPI"],
-    period: "2025 하반기",
-    links: {
-      github: "https://github.com/jinyounghwa",
-      live: "#"
-    },
-    image: "/images/local-ai.png",
+    stack: ["Local LLM", "Next.js", "TypeScript", "Tailwind CSS"],
+    period: "2026 상반기",
+    image: "https://images.unsplash.com/photo-1593642532744-d377ab507dc8?auto=format&fit=crop&q=80&w=800",
     color: "from-purple-600 to-pink-500"
   },
-  "tripath-career": {
-    title: "TriPath Career",
-    category: "EdTech Platform",
+  "ui-generator": {
+    title: "UI 제네레이터",
+    category: "Development Tooling",
+    youtubeId: "Jx2ZFYIh3rM",
     description: `
-      커리어 패스에 대한 고민을 해결해주는 AI 기반 멘토링 매칭 플랫폼입니다.
-      사용자의 이력과 목표를 분석하여 가장 적합한 현직자 멘토를 추천하고, 
-      성장을 위한 개인화된 커리어 로드맵을 자동으로 생성해줍니다.
+      사용자의 자연어 요구사항이나 거친 스케치 수준의 아이디어를 바탕으로, 실제 동작하는 UI/UX 코드를 즉각적으로 생성해주는 개발 도구입니다.
+      기획 단계부터 프론트엔드 구현까지의 시간을 비약적으로 단축시키며, 프로젝트 톤앤매너에 맞는 UI 코드를 빠르고 정확하게 출력합니다.
     `,
     details: [
-      "협업 필터링 및 콘텐츠 기반 추천 시스템 하이브리드 구현",
-      "Next.js의 ISR(Incremental Static Regeneration)을 활용한 SEO 최적화",
-      "로컬 AI 시스템과 AI API서비스 통합구현",
-      "RAG 구축"
+      "자연어 분석을 통한 UI 컴포넌트 매핑 및 속성 최적화 알고리즘",
+      "React/Next.js 기반의 실시간 프리뷰 렌더링 시스템 적용",
+      "코드 자동 생성 및 실시간 수정 사항 반영 파이프라인 구축"
     ],
-    stack: ["Next.js", "TypeScript", "Supabase", "WebRTC"],
-    period: "2025 하반기",
-    links: {
-      github: "https://github.com/jinyounghwa",
-      live: "#"
-    },
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+    stack: ["React", "AI Code Generation", "TypeScript", "AST Parsing"],
+    period: "2026 상반기",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
     color: "from-emerald-600 to-teal-500"
   },
-  "business-automation": {
-    title: "Business Automation",
-    category: "Consulting & Implementation",
+  "ai-agent-commerce": {
+    title: "AI 에이전트 쇼핑몰 데모",
+    category: "AI Commerce Platform",
+    youtubeId: "Ta-Ye6xiX08",
     description: `
-      비즈니스 프로세스를 철저히 분석하여 맞춤형 자동화 워크플로우를 구축하는 통합 솔루션 서비스입니다.
-      단순 반복 업무부터 복잡한 시스템 통합까지, n8n과 다양한 API를 활용하여 운영 효율을 퀀텀 점프시킵니다.
-      상담을 통해 핵심 기능을 추출하고, 전용 워크스페이스 구축부터 최적화된 시스템 세팅까지 원스톱으로 제공합니다.
+      단순한 키워드 상품 검색을 넘어, AI 에이전트가 고객의 성향을 파악하고 일대일 맞춤형 화이트글로브 서비스처럼 응대하는 차세대 쇼핑몰 플랫폼의 데모 솔루션입니다.
+      고객과의 자연스러운 대화를 기반으로 최적의 상품을 제안하고, 결제와 사후 안내까지 매끄럽게 이어지는 에이전트 중심(Agent-Centric) 커머스를 경험할 수 있습니다.
     `,
     details: [
-      "심층 상담을 통한 비즈니스 로직 및 병목 구간 분석",
-      "n8n을 활용한 고도화된 업무 자동화 시나리오 설계 및 구현",
-      "SaaS 도구(Slack, Notion, Gmail 등) 간의 유기적인 데이터 동기화",
-      "개인 및 팀을 위한 맞춤형 워크스페이스 환경 구축 및 교육"
+      "자연어 입력 기반의 시맨틱 상품 검색 및 실시간 큐레이션 기법",
+      "고객 의도 분석을 통한 선제적 상품 제안 및 추천 로직 강화",
+      "에이전트 중심의 새로운 쇼핑 UX 설계 및 결제 편의성 향상"
     ],
-    stack: ["n8n", "Make", "REST API", "JavaScript"],
-    period: "2026 상시",
-    links: {
-      github: "https://github.com/jinyounghwa",
-      live: "#"
-    },
-    image: "/images/automation.png",
+    stack: ["Next.js", "AI Agent", "E-Commerce", "Vector DB"],
+    period: "2026 상반기",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800",
     color: "from-orange-600 to-yellow-500"
-  },
-  "chat-orchestration": {
-    title: "Chat Orchestration",
-    category: "AI Automation & System Control",
-    description: `
-      로컬에서 동작하는 시스템과 Chat을 연결하여 정보 조회는 물론 컴퓨터를 제어하여 업무를 처리하는 시스템입니다.
-      Chat을 시스템과 연결하여 검색은 물론 자동 견적서와 같은 AI 연동 통합 자동화 서비스입니다.
-      이미 구축된 시스템에 PC 제어 솔루션을 붙여, 사용자의 자연어 명령만으로 실제 업무 환경을 조작합니다.
-    `,
-    details: [
-      "로컬 및 클라우드 환경의 Chat 시스템과 하드웨어 제어 레이어 통합",
-      "오픈소스 엔진을 활용한 고수준 컴퓨터 조작 및 자동화",
-      "자연어 명령을 통한 파일 시스템 접근, 브라우저 제어 및 복잡한 워크플로우 수행",
-      "AI 기반 실시간 견적 분석 및 업무 보고서 자동 생성 파이프라인 구축"
-    ],
-    stack: ["Chat Solution", "Python", "Node.js", "Computer Control"],
-    period: "2026 상시",
-    links: {
-      github: "https://github.com/jinyounghwa",
-      live: "#"
-    },
-    image: "/images/chat-orchestration.png",
-    color: "from-red-600 to-rose-500"
   }
 };
 
@@ -139,7 +96,6 @@ export default function ProjectDetail({ params }: { params: Promise<{ slug: stri
       <div className="relative w-full h-[60vh] overflow-hidden">
         <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-30`}></div>
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-        {/* Placeholder for actual image if needed, or just use the gradient/color */}
          <Image 
           src={project.image} 
           alt={project.title} 
@@ -171,6 +127,26 @@ export default function ProjectDetail({ params }: { params: Promise<{ slug: stri
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
+            {/* Demo Video Section */}
+            {project.youtubeId && (
+              <div className="mb-16">
+                <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                  <Video className="w-6 h-6 text-primary" />
+                  솔루션 데모 영상
+                </h2>
+                <div className="rounded-2xl overflow-hidden glass-card border-none aspect-video relative shadow-2xl">
+                  <iframe 
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${project.youtubeId}`} 
+                    title={`${project.title} Video`} 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen>
+                  </iframe>
+                </div>
+              </div>
+            )}
+
             <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
               <Layers className="w-6 h-6 text-primary" />
               Project Overview
@@ -221,11 +197,10 @@ export default function ProjectDetail({ params }: { params: Promise<{ slug: stri
                 ))}
               </div>
             </div>
-
-            {/* Buttons removed as requested */}
           </motion.div>
         </div>
       </div>
     </div>
   );
 }
+

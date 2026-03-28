@@ -12,14 +12,12 @@ export const metadata: Metadata = {
     title: "GitHub Stars | jinslife.kr",
     description:
       "실무에 도움이 되는 GitHub 레포지토리 큐레이션. AI, 개발도구, 프레임워크 등 카테고리별 정리.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "GitHub Stars Curation" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "GitHub Stars | jinslife.kr",
     description:
       "실무에 도움이 되는 GitHub 레포지토리 큐레이션. AI, 개발도구, 프레임워크 등 카테고리별 정리.",
-    images: ["/og-image.png"],
   },
 };
 

@@ -32,21 +32,12 @@ export const metadata: Metadata = {
     description:
       "AI 개발자 큐레이션 허브. Claude/AI 뉴스, GitHub Stars 큐레이션, 그리고 개발자 진영화의 이야기.",
     locale: "ko_KR",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "jinslife.kr — AI Developer Curation Hub",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "jinslife.kr — AI Developer Curation Hub",
     description:
       "AI 개발자 큐레이션 허브. Claude/AI 뉴스, GitHub Stars 큐레이션, 그리고 개발자 진영화의 이야기.",
-    images: ["/og-image.png"],
   },
 };
 

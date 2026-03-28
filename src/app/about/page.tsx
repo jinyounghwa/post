@@ -11,14 +11,12 @@ export const metadata: Metadata = {
     title: "About | jinslife.kr",
     description:
       "14년차 IT 기획 개발자 진영화. 풀스택 웹, 모바일 앱, AI/LLM 서비스 개발.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "진영화 — AI 개발자" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "About | jinslife.kr",
     description:
       "14년차 IT 기획 개발자 진영화. 풀스택 웹, 모바일 앱, AI/LLM 서비스 개발.",
-    images: ["/og-image.png"],
   },
 };
 

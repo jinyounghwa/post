@@ -1,6 +1,7 @@
 import { getNewsPost, getAllNewsSlugs } from "@/lib/mdx";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -9,6 +10,34 @@ interface PageProps {
 export function generateStaticParams() {
   const slugs = getAllNewsSlugs();
   return slugs.map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  try {
+    const post = await getNewsPost(slug);
+    return {
+      title: post.title,
+      description: post.summary,
+      openGraph: {
+        type: "article",
+        url: `https://jinslife.kr/${slug}/`,
+        title: post.title,
+        description: post.summary,
+        publishedTime: post.date,
+        tags: post.tags,
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: post.title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.summary,
+        images: ["/og-image.png"],
+      },
+    };
+  } catch {
+    return { title: "Not Found" };
+  }
 }
 
 export default async function NewsDetailPage({ params }: PageProps) {
@@ -22,7 +51,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-16">
       <Link
         href="/"
         className="inline-flex items-center gap-2 text-sm text-sub hover:text-accent font-mono mb-8 transition-colors"
@@ -34,21 +63,19 @@ export default async function NewsDetailPage({ params }: PageProps) {
       </Link>
 
       <article>
-        <header className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
+        <header className="mb-8 md:mb-10">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
             <time className="text-xs text-sub font-mono">{post.date}</time>
-            <div className="flex gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-2 py-0.5 border border-border rounded text-sub font-mono"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-xs px-2 py-0.5 border border-border rounded text-sub font-mono"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
-          <h1 className="font-[family-name:var(--font-syne)] text-3xl md:text-4xl font-bold tracking-tight">
+          <h1 className="font-[family-name:var(--font-syne)] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
             {post.title}
           </h1>
         </header>

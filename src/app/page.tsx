@@ -6,8 +6,8 @@ export default function HomePage() {
   const allTags = getAllTags();
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16">
-      <section className="mb-16">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-16">
+      <section className="mb-10 md:mb-16">
         <h1 className="font-[family-name:var(--font-syne)] text-4xl md:text-5xl font-bold tracking-tight mb-4">
           Claude & AI <span className="text-accent-gradient">News</span>
         </h1>

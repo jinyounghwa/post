@@ -1,4 +1,26 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "14년차 IT 기획 개발자 진영화. 풀스택 웹, 모바일 앱, AI/LLM 서비스 개발.",
+  openGraph: {
+    type: "profile",
+    url: "https://jinslife.kr/about/",
+    title: "About | jinslife.kr",
+    description:
+      "14년차 IT 기획 개발자 진영화. 풀스택 웹, 모바일 앱, AI/LLM 서비스 개발.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "진영화 — AI 개발자" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | jinslife.kr",
+    description:
+      "14년차 IT 기획 개발자 진영화. 풀스택 웹, 모바일 앱, AI/LLM 서비스 개발.",
+    images: ["/og-image.png"],
+  },
+};
 
 const services = [
   {
@@ -55,9 +77,9 @@ const projects = [
 
 export default function AboutPage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-16">
       {/* Header */}
-      <section className="mb-20">
+      <section className="mb-12 md:mb-20">
         <h1 className="font-[family-name:var(--font-syne)] text-4xl md:text-5xl font-bold tracking-tight mb-6">
           About <span className="text-accent-gradient">Me</span>
         </h1>
@@ -74,7 +96,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="mb-20 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="mb-12 md:mb-20 grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           { value: "14+", label: "Years Experience" },
           { value: "Full", label: "Stack Developer" },
@@ -94,7 +116,7 @@ export default function AboutPage() {
       </section>
 
       {/* Services */}
-      <section className="mb-20">
+      <section className="mb-12 md:mb-20">
         <h2 className="font-[family-name:var(--font-syne)] text-2xl font-bold mb-8">
           Services
         </h2>
@@ -124,7 +146,7 @@ export default function AboutPage() {
       </section>
 
       {/* Tech Stack */}
-      <section className="mb-20">
+      <section className="mb-12 md:mb-20">
         <h2 className="font-[family-name:var(--font-syne)] text-2xl font-bold mb-8">
           Tech Stack
         </h2>
@@ -159,7 +181,7 @@ export default function AboutPage() {
       </section>
 
       {/* Projects */}
-      <section className="mb-20">
+      <section className="mb-12 md:mb-20">
         <h2 className="font-[family-name:var(--font-syne)] text-2xl font-bold mb-8">
           Selected Projects
         </h2>
@@ -173,7 +195,7 @@ export default function AboutPage() {
                 {project.title}
               </h3>
               <p className="text-sm text-sub font-mono mb-3">{project.desc}</p>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
@@ -193,7 +215,7 @@ export default function AboutPage() {
         <h2 className="font-[family-name:var(--font-syne)] text-2xl font-bold mb-8">
           Contact
         </h2>
-        <div className="border border-border rounded-lg p-8 space-y-4">
+        <div className="border border-border rounded-lg p-5 sm:p-8 space-y-4">
           <a
             href="mailto:timotolkie@gmail.com"
             className="flex items-center gap-3 text-sm font-mono text-sub hover:text-accent transition-colors"

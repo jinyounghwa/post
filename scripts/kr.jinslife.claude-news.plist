@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>kr.jinslife.claude-news</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/younghwa.jin/Documents/GitHub/post/scripts/fetch_claude_news.sh</string>
+    </array>
+
+    <!-- 매일 00:20 실행 -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>0</integer>
+        <key>Minute</key>
+        <integer>20</integer>
+    </dict>
+
+    <!-- 잠자기 중 놓친 실행은 깨어난 직후 실행 -->
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/younghwa.jin/Documents/GitHub/post/logs/launchd_stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/younghwa.jin/Documents/GitHub/post/logs/launchd_stderr.log</string>
+</dict>
+</plist>

@@ -1,25 +1,25 @@
 ---
-title: "AI 개발 도구 모음"
+title: "AI 리서치 & 테스팅 도구"
 category: "AI"
 date: "2026-03-28"
 ---
 
-## vercel/ai
-- **링크:** https://github.com/vercel/ai
-- **설명:** AI SDK for building AI-powered applications
-- **왜 좋냐:** 스트리밍 응답 구현이 가장 깔끔함. React/Next.js와 완벽하게 통합됨
+## HKUDS/RAG-Anything
+- **링크:** https://github.com/HKUDS/RAG-Anything
+- **설명:** All-in-One RAG Framework
+- **왜 좋냐:** PDF, 표, 이미지, 오디오까지 멀티모달 RAG를 한 프레임워크에서. 14,600+ 스타. RAG 구축 시 첫 선택지
 
-## lobehub/lobe-chat
-- **링크:** https://github.com/lobehub/lobe-chat
-- **설명:** 오픈소스 ChatGPT UI
-- **왜 좋냐:** 플러그인 생태계가 잘 돼 있음. 로컬 모델 연동도 쉬움
+## usestrix/strix
+- **링크:** https://github.com/usestrix/strix
+- **설명:** Open-source AI to find and fix app vulnerabilities
+- **왜 좋냐:** AI가 앱 취약점을 자동 탐지·수정. Claude Code Security와 비교해볼 만한 오픈소스 대안. 22,300+ 스타
 
-## langchain-ai/langchain
-- **링크:** https://github.com/langchain-ai/langchain
-- **설명:** Building LLM applications framework
-- **왜 좋냐:** RAG 파이프라인 구축의 사실상 표준. 문서도 방대함
+## mobile-dev-inc/Maestro
+- **링크:** https://github.com/mobile-dev-inc/Maestro
+- **설명:** Painless E2E Automation for Mobile and Web
+- **왜 좋냐:** 모바일 E2E 테스트 자동화 중 가장 쓰기 쉬움. YAML 한 줄로 iOS/Android 동작 기술. 13,100+ 스타
 
-## all-hands-ai/openhands
-- **링크:** https://github.com/all-hands-ai/openhands
-- **설명:** AI-powered software development agent
-- **왜 좋냐:** 자율적으로 코딩, 디버깅, 배포까지 수행하는 에이전트
+## NVIDIA/DreamDojo
+- **링크:** https://github.com/NVIDIA/DreamDojo
+- **설명:** Generalist Robot World Model from large-scale human videos
+- **왜 좋냐:** 인간 동작 영상에서 로봇 세계 모델 학습. NVIDIA 공식 연구. 에이전트·로보틱스 방향성 파악용

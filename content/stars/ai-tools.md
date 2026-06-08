@@ -1,7 +1,7 @@
 ---
 title: "AI 보안 & 테스팅 도구"
 category: "AI Tools"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## usestrix/strix
@@ -28,3 +28,28 @@ date: "2026-03-28"
 - **링크:** https://github.com/cleanlab/cleanlab
 - **설명:** Standard data-centric AI package for data quality and ML
 - **왜 좋냐:** 데이터 품질 자동 탐지. 데이터 중심 AI 패키지. 11,394 스타
+
+## guardrailsai/guardrails
+- **링크:** https://github.com/guardrailsai/guardrails
+- **설명:** A framework for reliable, safe, and tested LLM applications
+- **왜 좋냐:** LLM 출력 검증·필터링 프레임워크. 가드레일 설정. 28,900+ 스타
+
+## anthropics/antml
+- **링크:** https://github.com/anthropics/anthropic-sdk-python
+- **설명:** Official Anthropic Python SDK
+- **왜 좋냐:** Claude API 공식 SDK. 타입 안전, 스트리밍 지원. 32,400+ 스타
+
+## langchain-ai/langchain
+- **링크:** https://github.com/langchain-ai/langchain
+- **설명:** Building applications with LLMs through composability
+- **왜 좋냐:** LLM 앱 프레임워크. 체인·에이전트·메모리 통합. 152,300+ 스타
+
+## openai/openai-python
+- **링크:** https://github.com/openai/openai-python
+- **설명:** OpenAI Python Library
+- **왜 좋냐:** OpenAI API 공식 라이브러리. 상대적으로 비교하는 데 좋음. 78,500+ 스타
+
+## aws/aws-sdk-for-python
+- **링크:** https://github.com/boto/boto3
+- **설명:** The AWS SDK for Python
+- **왜 좋냐:** AWS Bedrock·SageMaker 통합. 클라우드 AI 서비스 접근. 89,200+ 스타

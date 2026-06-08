@@ -1,7 +1,7 @@
 ---
 title: "DevOps & 배포 도구"
 category: "DevOps"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## Dokploy/dokploy

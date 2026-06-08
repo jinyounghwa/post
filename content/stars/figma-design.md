@@ -1,7 +1,7 @@
 ---
 title: "Figma & AI 디자인 도구"
 category: "Design"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## GLips/Figma-Context-MCP

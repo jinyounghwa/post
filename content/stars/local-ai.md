@@ -1,7 +1,7 @@
 ---
 title: "로컬 AI & LLM 추론 인프라"
 category: "Local AI"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## vllm-project/vllm

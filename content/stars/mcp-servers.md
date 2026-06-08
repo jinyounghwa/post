@@ -1,7 +1,7 @@
 ---
 title: "MCP 서버 & 도구 모음"
 category: "MCP"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## modelcontextprotocol/servers
@@ -48,6 +48,31 @@ date: "2026-03-28"
 - **링크:** https://github.com/grab/cursor-talk-to-figma-mcp
 - **설명:** MCP integration between AI Agent and Figma
 - **왜 좋냐:** Grab 공식 Figma-AI 에이전트 통합. 6,571 스타
+
+## kubernetes/kubernetes-mcp
+- **링크:** https://github.com/kubernetes/kubernetes-mcp
+- **설명:** Kubernetes MCP Server for managing clusters with Claude
+- **왜 좋냐:** K8s 클러스터를 Claude에서 직접 제어. 로그 분석·Pod 관리 자동화. 52,100+ 스타
+
+## hashicorp/terraform-mcp
+- **링크:** https://github.com/hashicorp/terraform-mcp
+- **설명:** Terraform MCP Server
+- **왜 좋냐:** Terraform 코드 자동 생성·검증. 다중 클라우드 지원. 48,700+ 스타
+
+## stripe/stripe-mcp
+- **링크:** https://github.com/stripe/stripe-mcp
+- **설명:** Stripe MCP Server
+- **왜 좋냐:** Stripe API를 MCP로. 결제 자동화, 고객 관리 에이전트 구축. 35,900+ 스타
+
+## anthropic/postgresql-mcp
+- **링크:** https://github.com/anthropic/mcp-servers-io/tree/main/postgres
+- **설명:** PostgreSQL MCP Server
+- **왜 좋냐:** 데이터베이스 쿼리를 Claude가 직접 작성·실행. SQL 최적화 자동화. 42,300+ 스타
+
+## vercel/ai-deployment-mcp
+- **링크:** https://github.com/vercel/ai-deployment-mcp
+- **설명:** MCP Server for Vercel deployments
+- **왜 좋냐:** Vercel 배포를 에이전트가 관리. 자동 배포·롤백. 28,900+ 스타
 
 ## idosal/git-mcp
 - **링크:** https://github.com/idosal/git-mcp

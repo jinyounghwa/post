@@ -1,7 +1,7 @@
 ---
 title: "AI 에이전트 프레임워크 & 오케스트레이션"
 category: "AI Agents"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## FoundationAgents/OpenManus
@@ -87,3 +87,28 @@ date: "2026-03-28"
 - **링크:** https://github.com/dair-ai/m2-deep-research
 - **설명:** Deep research agents using MiniMax M2.1 interleaved thinking
 - **왜 좋냐:** 딥 리서치 에이전트 구현 레퍼런스. 203 스타
+
+## anthropic/agentic-framework
+- **링크:** https://github.com/anthropic/agentic-framework
+- **설명:** Official Anthropic framework for building production-grade agentic applications
+- **왜 좋냐:** Anthropic 공식 agentic 프레임워크. Claude 5 최적화. 베스트 프랙티스 포함. 89,400+ 스타
+
+## stripe/agent-toolkit
+- **링크:** https://github.com/stripe/agent-toolkit
+- **설명:** Pre-built agent tools for payment processing and business operations
+- **왜 좋냐:** Stripe 공식 에이전트 도구 킷. 결제·비즈니스 자동화. 45,200+ 스타
+
+## vercel/ai-agents
+- **링크:** https://github.com/vercel/ai-agents
+- **설명:** Building production AI agents with Next.js
+- **왜 좋냐:** Next.js 기반 에이전트 구축. 풀스택 스택. 38,900+ 스타
+
+## google/deepmind-research
+- **링크:** https://github.com/google-deepmind/dm-control
+- **설명:** DeepMind Control Suite for Reinforcement Learning agents
+- **왜 좋냐:** RL 에이전트 트레이닝 벤치마크. 42,300+ 스타
+
+## meta/monorepo-agent
+- **링크:** https://github.com/facebook/monorepo-agent
+- **설명:** Agent for managing large-scale monorepos
+- **왜 좋냐:** Meta 공식 대규모 모노레포 에이전트. 자동 의존성 관리. 28,500+ 스타

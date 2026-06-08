@@ -1,7 +1,7 @@
 ---
 title: "Kotlin & JVM 개발"
 category: "Kotlin"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## Kotlin/kotlinx.coroutines

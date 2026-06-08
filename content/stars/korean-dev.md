@@ -1,7 +1,7 @@
 ---
 title: "한국 개발자 커뮤니티 & 자료"
 category: "Korean Dev"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## gyoogle/tech-interview-for-developer

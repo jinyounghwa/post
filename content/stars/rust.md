@@ -1,7 +1,7 @@
 ---
 title: "Rust 언어 학습 & 프로젝트"
 category: "Rust"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## rust-lang/rustlings

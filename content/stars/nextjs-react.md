@@ -1,7 +1,7 @@
 ---
 title: "Next.js & React 프레임워크"
 category: "Frontend"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## facebook/react
@@ -53,3 +53,28 @@ date: "2026-03-28"
 - **링크:** https://github.com/vercel-labs/mcp-for-next.js
 - **설명:** MCP integration for Next.js
 - **왜 좋냐:** Next.js에서 MCP 서버 쉽게 붙이기. Vercel 공식. 350 스타
+
+## shadcn/ui
+- **링크:** https://github.com/shadcn-ui/ui
+- **설명:** Beautifully designed components built with Radix UI and Tailwind CSS
+- **왜 좋냐:** 복사해서 쓰는 React UI 컴포넌트. 프레임워크 자유도. 89,321 스타
+
+## remix-run/remix
+- **링크:** https://github.com/remix-run/remix
+- **설명:** Build Better Websites. Create modern, resilient user experiences with web fundamentals
+- **왜 좋냐:** 웹 기초에 충실한 풀스택 프레임워크. 서버 액션 선도. 31,289 스타
+
+## vercel/next.js
+- **링크:** https://github.com/vercel/next.js
+- **설명:** The React Framework for Production
+- **왜 좋냐:** App Router, Server Components, 동적 OG 이미지. 154,892 스타
+
+## pmndrs/zustand
+- **링크:** https://github.com/pmndrs/zustand
+- **설명:** Bear necessities for state management in React
+- **왜 좋냐:** 가벼운 상태 관리. Redux보다 직관적. 66,100+ 스타
+
+## alan2207/bulletproof-react
+- **링크:** https://github.com/alan2207/bulletproof-react
+- **설명:** A simple, scalable, and powerful architecture for building production ready React applications
+- **왜 좋냐:** 프로덕션 React 아키텍처 가이드. 구조화된 프로젝트 레이아웃. 48,500+ 스타

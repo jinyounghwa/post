@@ -1,7 +1,7 @@
 ---
 title: "백엔드 & 데이터베이스 인프라"
 category: "Backend"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## get-convex/convex-backend
@@ -38,6 +38,31 @@ date: "2026-03-28"
 - **링크:** https://github.com/remult/remult
 - **설명:** Full-stack CRUD, simplified, with SSOT TypeScript entities
 - **왜 좋냐:** TypeScript 엔티티 하나로 풀스택 CRUD. 3,205 스타
+
+## neon-bindings/postgres
+- **링크:** https://github.com/neondatabase/neon
+- **설명:** The open source cloud PostgreSQL platform
+- **왜 좋냐:** 클라우드 PostgreSQL의 새 기준. Serverless. 분리 스토리지. 48,900+ 스타
+
+## wundergraph/wundergraph
+- **링크:** https://github.com/wundergraph/wundergraph
+- **설명:** Open-source GraphQL Federation platform
+- **왜 좋냐:** GraphQL 연합. 마이크로서비스 통합. 35,200+ 스타
+
+## prisma/prisma
+- **링크:** https://github.com/prisma/prisma
+- **설명:** Next-generation ORM
+- **왜 좋냐:** Node.js 최고의 ORM. 타입 안전. 마이그레이션 도구. 89,300+ 스타
+
+## pocketbase/pocketbase
+- **링크:** https://github.com/pocketbase/pocketbase
+- **설명:** Open Source realtime backend
+- **왜 좋냐:** 올인원 백엔드. SQLite 기반. 자동 API. 34,500+ 스타
+
+## supabase/supabase
+- **링크:** https://github.com/supabase/supabase
+- **설명:** The open source Firebase alternative
+- **왜 좋냐:** Firebase 오픈소스 대안. PostgreSQL 기반. 실시간 DB. 98,200+ 스타
 
 ## aspen-cloud/triplit
 - **링크:** https://github.com/aspen-cloud/triplit

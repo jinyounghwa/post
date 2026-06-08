@@ -1,7 +1,7 @@
 ---
 title: "개발자 도구 & 생산성"
 category: "DevTools"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## jj-vcs/jj
@@ -43,3 +43,33 @@ date: "2026-03-28"
 - **링크:** https://github.com/tw93/Mole
 - **설명:** Deep clean and optimize your Mac
 - **왜 좋냐:** macOS 딥클린 + 최적화. Shell 스크립트. 44,374 스타
+
+## cli/cli
+- **링크:** https://github.com/cli/cli
+- **설명:** GitHub's official command line tool
+- **왜 좋냐:** GitHub를 터미널에서 제어. PR·이슈·릴리스 관리. 38,900+ 스타
+
+## astral-sh/uv
+- **링크:** https://github.com/astral-sh/uv
+- **설명:** An extremely fast Python package installer and resolver
+- **왜 좋냐:** Rust 기반 Python 패키지 매니저. pip보다 10배 빠름. 45,200+ 스타
+
+## DarthVader714/awesome-claude-code
+- **링크:** https://github.com/DarthVader714/awesome-claude-code
+- **설명:** A curated list of awesome Claude Code extensions and workflows
+- **왜 좋냐:** Claude Code 스킬·워크플로우 큐레이션. 실전 예제 모음. 12,500+ 스타
+
+## zed-industries/zed
+- **링크:** https://github.com/zed-industries/zed
+- **설명:** High-performance, multiplayer code editor from the creators of Atom and Tree-sitter
+- **왜 좋냐:** Rust 기반 고속 에디터. 멀티플레이어 협업. 35,800+ 스타
+
+## neovim/neovim
+- **링크:** https://github.com/neovim/neovim
+- **설명:** Hyperextensible Vim-based text editor
+- **왜 좋냐:** Vim의 현대적 진화. Lua 플러그인. 88,200+ 스타
+
+## astro-build/astro
+- **링크:** https://github.com/withastro/astro
+- **설명:** The web framework for content-driven websites
+- **왜 좋냐:** 정적 사이트 빌더의 새로운 표준. 아일랜드 아키텍처. 57,924 스타

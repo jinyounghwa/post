@@ -1,7 +1,7 @@
 ---
 title: "RAG & 지식 시스템"
 category: "RAG"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## infiniflow/ragflow

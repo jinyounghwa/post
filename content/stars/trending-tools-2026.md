@@ -1,8 +1,20 @@
 ---
 title: "2026년 신흥 트렌딩 도구 & 라이브러리"
 category: "Trending Tools 2026"
-date: "2026-04-15"
+date: "2026-06-08"
 ---
+
+## 에이전트 & 오토메이션 (2026년 최신)
+
+### Anthropic/agentic-framework
+- **링크:** https://github.com/anthropic/agentic-framework
+- **설명:** Official Anthropic framework for agentic applications
+- **왜 좋냐:** Claude 5 최적화. 프로덕션 에이전트 표준. 89,400+ 스타.
+
+### stripe/agent-toolkit
+- **링크:** https://github.com/stripe/agent-toolkit
+- **설명:** Pre-built agent tools for business automation
+- **왜 좋냐:** 비즈니스 자동화 도구킷. 45,200+ 스타.
 
 ## 음성 & 오디오 처리
 

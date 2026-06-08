@@ -1,7 +1,7 @@
 ---
 title: "Claude Code UI & 터미널 도구"
 category: "Claude Code UI"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## thedotmack/claude-mem

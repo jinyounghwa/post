@@ -1,7 +1,7 @@
 ---
 title: "Claude Code 스킬 & 설정 모음"
 category: "Claude Code"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## anthropics/skills

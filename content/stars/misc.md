@@ -1,7 +1,7 @@
 ---
 title: "게임 개발 · 블록체인 · 기타"
 category: "Misc"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## miloyip/game-programmer

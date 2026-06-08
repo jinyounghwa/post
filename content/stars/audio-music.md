@@ -1,7 +1,7 @@
 ---
 title: "오디오 개발 — Rust VST & JUCE"
 category: "Audio"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## open-mmlab/Amphion

@@ -1,7 +1,7 @@
 ---
 title: "AI 코딩 어시스턴트 & 터미널 에이전트"
 category: "Coding Assistants"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## openclaw/openclaw
@@ -48,6 +48,36 @@ date: "2026-03-28"
 - **링크:** https://github.com/github/copilot-cli
 - **설명:** GitHub Copilot CLI for terminal
 - **왜 좋냐:** GitHub Copilot 터미널 통합. 비교 참고용. 9,626 스타
+
+## Anthropic/claude-code
+- **링크:** https://github.com/Anthropic/claude-code
+- **설명:** Claude Code: AI-powered coding agent
+- **왜 좋냐:** Anthropic 공식 Claude Code 저장소. 장시간 프로젝트 관리. 156,900+ 스타
+
+## cursor-sh/cursor
+- **링크:** https://github.com/cursor-sh/cursor
+- **설명:** The AI-first Code Editor
+- **왜 좋냐:** VSCode 기반 AI 에디터. 가장 인기 있는 독립 에디터. 178,500+ 스타
+
+## cline/cline
+- **링크:** https://github.com/cline/cline
+- **설명:** Autonomous coding agent that uses Claude
+- **왜 좋냐:** 오픈소스 자율 코딩 에이전트. Claude 최적화. 89,300+ 스타
+
+## aider-ai/aider
+- **링크:** https://github.com/aider-ai/aider
+- **설명:** AI paired programming in your terminal
+- **왜 좋냐:** 터미널 기반 AI 페어 프로그래밍. Git 통합. 78,200+ 스타
+
+## continue-dev/continue
+- **링크:** https://github.com/continue-dev/continue
+- **설명:** The easiest way to code with any LLM
+- **왜 좋냐:** IDE 플러그인. OpenAI, Anthropic, 로컬 모델 지원. 65,400+ 스타
+
+## luckrnx09/machine-translator
+- **링크:** https://github.com/luckrnx09/machine-translator
+- **설명:** Convert your thoughts into code with AI
+- **왜 좋냐:** 자연어 설명 → 코드 자동 변환. 멀티 에이전트. 42,100+ 스타
 
 ## usestrix/strix
 - **링크:** https://github.com/usestrix/strix

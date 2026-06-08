@@ -1,7 +1,7 @@
 ---
 title: "브라우저 자동화 & E2E 테스팅"
 category: "Testing"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## vercel-labs/agent-browser

@@ -1,7 +1,7 @@
 ---
 title: "AI 모델 & 연구"
 category: "AI Research"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## karpathy/nanochat

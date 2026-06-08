@@ -1,7 +1,7 @@
 ---
 title: "AI 스펙 주도 개발 & 프로젝트 관리"
 category: "Spec & Workflow"
-date: "2026-03-28"
+date: "2026-06-08"
 ---
 
 ## github/spec-kit

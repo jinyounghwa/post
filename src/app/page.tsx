@@ -68,7 +68,7 @@ export default function HomePage() {
           <h1 className="fade-up fade-up-delay-1 font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.15] mb-6 max-w-3xl">
             기획서만 쓰지 않습니다.
             <br />
-            데모를 만들어 눈으로 보여주는,
+            데모를 만들어 보여주는,
             <br />
             <span className="text-accent">개발을 하는 기획자</span>
           </h1>

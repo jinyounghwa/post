@@ -6,7 +6,7 @@ const STRENGTHS = [
   {
     no: "01",
     title: "원스톱 솔루션",
-    desc: "요구사항 정의 → 기획 → 개발 → 배포까지 한 사람이 책임집니다. 기획자와 개발자 사이의 전달 손실이 없습니다.",
+    desc: "요구사항 정의 → 기획 → 개발 → 배포까지 직접 경험했습니다. 기획자와 개발자 사이의 전달 손실이 없습니다.",
   },
   {
     no: "02",
@@ -68,13 +68,13 @@ export default function HomePage() {
           <h1 className="fade-up fade-up-delay-1 font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.15] mb-6 max-w-3xl">
             기획서만 쓰지 않습니다.
             <br />
-            직접 만들어서 증명하는,
+            데모를 만들어 눈으로 보여주는,
             <br />
-            <span className="text-accent">개발을 좀 하는 기획자</span>
+            <span className="text-accent">개발을 하는 기획자</span>
           </h1>
           <p className="fade-up fade-up-delay-2 text-sub text-sm sm:text-base max-w-xl leading-relaxed mb-10">
             14년의 IT 기획 경험에 개발 역량을 얹어, 비즈니스 아이디어를 요구사항 정의부터
-            배포까지 직접 완성합니다. 경력 소개 대신, 실제로 동작하는 데모 8종을 먼저 보여드립니다.
+            직접 보여드립니다. 경력 소개 대신, 실제로 동작하는 데모 8종을 먼저 보여드립니다.
           </p>
 
           {/* 시그니처: 도장 */}

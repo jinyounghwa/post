@@ -106,7 +106,7 @@ export default function HomePage() {
       <section className="py-12 md:py-16 border-t rule-strong">
         <p className="spec-label mb-3">02 — 핵심 강점</p>
         <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold mb-10">
-          왜 1인 팀에게 맡기는가
+          왜 진영화에게 맡기는가
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {STRENGTHS.map((strength) => (

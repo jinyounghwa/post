@@ -1,58 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0A0A0A;
-  --foreground: #E8E8E8;
-  --accent: #F0A500;
-  --sub: #666666;
-  --border: #1A1A1A;
-  --card: #111111;
-  --font-display: var(--font-syne), sans-serif;
-  --font-body: var(--font-ibm-plex-mono), monospace;
+  --background: #F3F3EE;
+  --foreground: #1B2129;
+  --accent: #C2402C;
+  --blue: #2947A9;
+  --sub: #676D66;
+  --border: #D8D9D0;
+  --card: #FCFCF9;
+  --font-display: var(--font-hahmlet), serif;
+  --font-body: var(--font-plex-kr), sans-serif;
+  --font-utility: var(--font-plex-mono), var(--font-plex-kr), monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
+  --color-blue: var(--blue);
   --color-sub: var(--sub);
   --color-border: var(--border);
   --color-card: var(--card);
-  --font-sans: var(--font-display);
-  --font-mono: var(--font-body);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-utility);
 }
 
-* {
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    /* 미세한 종이 결 */
+    background-image: radial-gradient(rgba(27, 33, 41, 0.035) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
 
-::selection {
-  background: var(--accent);
-  color: var(--background);
-}
+  ::selection {
+    background: var(--accent);
+    color: var(--card);
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
 }
 
 @layer utilities {
+  /* 구버전 유틸 호환: 강조 텍스트 (기존 그라디언트 → 인주색 단색) */
   .text-accent-gradient {
-    background: linear-gradient(135deg, var(--accent), #FFD700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--accent);
   }
 
   .border-accent {
@@ -60,20 +72,22 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .card-hover {
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .card-hover:hover {
-    border-color: var(--accent);
+    border-color: var(--foreground);
     transform: translateY(-2px);
+    box-shadow: 4px 4px 0 rgba(27, 33, 41, 0.08);
   }
 
   .tag {
     padding: 2px 10px;
     font-size: 12px;
     border: 1px solid var(--border);
+    background: var(--card);
     color: var(--sub);
-    font-family: var(--font-body);
+    font-family: var(--font-utility);
     transition: all 0.15s ease;
     cursor: pointer;
     user-select: none;
@@ -81,15 +95,84 @@ h1, h2, h3, h4, h5, h6 {
 
   .tag:hover,
   .tag.active {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  /* 스펙 문서 구조 레이블: "3.2 PORTFOLIO" 식 눈썹 텍스트 */
+  .spec-label {
+    font-family: var(--font-utility);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  /* 문서 헤더/메타 표 셀 */
+  .doc-cell {
+    font-family: var(--font-utility);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  /* 굵은 문서 괘선 */
+  .rule-strong {
+    border-color: var(--foreground);
+  }
+}
+
+/* 도장(印) — 시그니처 요소 */
+.seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-weight: 700;
+  transform: rotate(-8deg);
+  mix-blend-mode: multiply;
+  user-select: none;
+}
+
+@keyframes seal-stamp {
+  0% { opacity: 0; transform: rotate(-8deg) scale(1.6); }
+  60% { opacity: 1; transform: rotate(-8deg) scale(0.94); }
+  100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+
+.seal-animate {
+  animation: seal-stamp 0.5s cubic-bezier(0.2, 0.8, 0.3, 1.1) 0.4s both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fade-up 0.6s ease both;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; }
+.fade-up-delay-2 { animation-delay: 0.2s; }
+.fade-up-delay-3 { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .seal-animate,
+  .fade-up {
+    animation: none;
+  }
+  .card-hover:hover {
+    transform: none;
   }
 }
 
 /* Prose Styles for MD content */
 .prose {
   max-width: 72ch;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .prose h2 {
@@ -112,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose p {
   margin-bottom: 1rem;
-  color: #B0B0B0;
+  color: #3B4149;
 }
 
 .prose ul, .prose ol {
@@ -122,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .prose li {
   margin-bottom: 0.5rem;
-  color: #B0B0B0;
+  color: #3B4149;
 }
 
 .prose strong {
@@ -139,8 +222,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prose code {
-  font-family: var(--font-body);
-  background: var(--border);
+  font-family: var(--font-utility);
+  background: #E9EAE2;
   padding: 2px 6px;
   font-size: 0.9em;
   border-radius: 3px;
@@ -149,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 .prose pre {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 1rem;
   overflow-x: auto;
   margin: 1.5rem 0;
@@ -161,13 +244,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prose a {
-  color: var(--accent);
+  color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .prose a:hover {
-  color: #FFD700;
+  color: var(--accent);
 }
 
 /* Scrollbar */
@@ -178,9 +261,9 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: #C5C6BD;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #A9AAA0;
 }

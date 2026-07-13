@@ -49,11 +49,11 @@ export default async function Image({
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#0A0A0A",
+          backgroundColor: "#F3F3EE",
         }}
       >
         {/* 상단 앰버 바 */}
-        <div style={{ width: "100%", height: "6px", backgroundColor: "#F0A500" }} />
+        <div style={{ width: "100%", height: "6px", backgroundColor: "#C2402C" }} />
 
         {/* 메인 컨텐츠 */}
         <div
@@ -67,11 +67,11 @@ export default async function Image({
         >
           {/* 상단: 사이트명 + 날짜 */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ fontSize: 17, color: "#F0A500", fontFamily: "monospace", letterSpacing: 3 }}>
+            <span style={{ fontSize: 17, color: "#C2402C", fontFamily: "monospace", letterSpacing: 3 }}>
               JINSLIFE.KR
             </span>
             {date && (
-              <span style={{ fontSize: 15, color: "#444", fontFamily: "monospace" }}>
+              <span style={{ fontSize: 15, color: "#676D66", fontFamily: "monospace" }}>
                 {date}
               </span>
             )}
@@ -84,7 +84,7 @@ export default async function Image({
                 display: "flex",
                 fontSize: 52,
                 fontWeight: 800,
-                color: "#E8E8E8",
+                color: "#1B2129",
                 lineHeight: 1.2,
                 fontFamily: fontData ? "Syne" : "sans-serif",
                 letterSpacing: -1,
@@ -122,7 +122,7 @@ export default async function Image({
                   style={{
                     display: "flex",
                     fontSize: 14,
-                    color: "#F0A500",
+                    color: "#C2402C",
                     border: "1px solid #2a1a00",
                     padding: "4px 14px",
                     borderRadius: 4,
@@ -134,7 +134,7 @@ export default async function Image({
                 </div>
               ))}
             </div>
-            <span style={{ fontSize: 14, color: "#444", fontFamily: "monospace" }}>
+            <span style={{ fontSize: 14, color: "#676D66", fontFamily: "monospace" }}>
               AI Developer Curation Hub
             </span>
           </div>

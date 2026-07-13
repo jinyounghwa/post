@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const SKILLS = ["풀스택 웹", "iOS / Android", "AI / LLM", "IT 기획"];
+const SKILLS = ["웹 기획", "풀스택 개발", "iOS (Swift)", "AI / LLM"];
 
 export default async function Image() {
   const fontData = await loadSyneFont();
@@ -34,11 +34,11 @@ export default async function Image() {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#0A0A0A",
+          backgroundColor: "#F3F3EE",
         }}
       >
-        {/* 상단 앰버 바 */}
-        <div style={{ width: "100%", height: "6px", backgroundColor: "#F0A500" }} />
+        {/* 상단 인주색 바 */}
+        <div style={{ width: "100%", height: "6px", backgroundColor: "#C2402C" }} />
 
         <div
           style={{
@@ -58,7 +58,7 @@ export default async function Image() {
             }}
           >
             {/* 상단 */}
-            <span style={{ fontSize: 17, color: "#F0A500", fontFamily: "monospace", letterSpacing: 3 }}>
+            <span style={{ fontSize: 17, color: "#C2402C", fontFamily: "monospace", letterSpacing: 3 }}>
               JINSLIFE.KR
             </span>
 
@@ -75,9 +75,9 @@ export default async function Image() {
                   lineHeight: 1.05,
                 }}
               >
-                <span style={{ color: "#E8E8E8" }}>진영화</span>
-                <span style={{ color: "#F0A500", fontSize: 32, fontWeight: 700, letterSpacing: -1, marginTop: 8 }}>
-                  AI Developer · Planner
+                <span style={{ color: "#1B2129" }}>진영화</span>
+                <span style={{ color: "#C2402C", fontSize: 32, fontWeight: 700, letterSpacing: -1, marginTop: 8 }}>
+                  Web Planner · Developer
                 </span>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 4 }}>
@@ -87,10 +87,10 @@ export default async function Image() {
                     style={{
                       display: "flex",
                       fontSize: 15,
-                      color: "#888",
-                      border: "1px solid #2a2a2a",
+                      color: "#676D66",
+                      border: "1px solid #C9CBC2",
+                      backgroundColor: "#FCFCF9",
                       padding: "5px 16px",
-                      borderRadius: 4,
                       fontFamily: "monospace",
                     }}
                   >
@@ -102,9 +102,9 @@ export default async function Image() {
 
             {/* 하단 */}
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 8, height: 8, backgroundColor: "#F0A500", borderRadius: "50%" }} />
-              <span style={{ fontSize: 15, color: "#555", fontFamily: "monospace" }}>
-                14년차 · jinslife.kr
+              <div style={{ width: 8, height: 8, backgroundColor: "#C2402C", borderRadius: "50%" }} />
+              <span style={{ fontSize: 15, color: "#676D66", fontFamily: "monospace" }}>
+                IT 기획 14년 · jinslife.kr
               </span>
             </div>
           </div>
@@ -119,7 +119,6 @@ export default async function Image() {
                 flexShrink: 0,
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={profileSrc}
                 alt="진영화"
@@ -128,8 +127,7 @@ export default async function Image() {
                 style={{
                   borderRadius: "50%",
                   objectFit: "cover",
-                  border: "3px solid #F0A500",
-                  opacity: 0.9,
+                  border: "4px solid #C2402C",
                 }}
               />
             </div>

@@ -51,7 +51,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10 md:py-16">
       <Link
-        href="/"
+        href="/news/"
         className="inline-flex items-center gap-2 text-sm text-sub hover:text-accent font-mono mb-8 transition-colors"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -73,7 +73,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
               </span>
             ))}
           </div>
-          <h1 className="font-[family-name:var(--font-syne)] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+          <h1 className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
             {post.title}
           </h1>
         </header>

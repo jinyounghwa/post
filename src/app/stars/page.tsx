@@ -28,7 +28,7 @@ export default function StarsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 md:py-16">
       <section className="mb-10 md:mb-16">
-        <h1 className="font-[family-name:var(--font-syne)] text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold tracking-tight mb-4">
           GitHub <span className="text-accent-gradient">Stars</span>
         </h1>
         <p className="text-sub font-mono text-sm max-w-xl">

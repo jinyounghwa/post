@@ -25,11 +25,11 @@ export default async function Image() {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#0A0A0A",
+          backgroundColor: "#F3F3EE",
         }}
       >
         {/* 상단 앰버 바 */}
-        <div style={{ width: "100%", height: "6px", backgroundColor: "#F0A500" }} />
+        <div style={{ width: "100%", height: "6px", backgroundColor: "#C2402C" }} />
 
         <div
           style={{
@@ -42,10 +42,10 @@ export default async function Image() {
         >
           {/* 상단: 사이트명 */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ fontSize: 17, color: "#F0A500", fontFamily: "monospace", letterSpacing: 3 }}>
+            <span style={{ fontSize: 17, color: "#C2402C", fontFamily: "monospace", letterSpacing: 3 }}>
               JINSLIFE.KR
             </span>
-            <span style={{ fontSize: 15, color: "#444", fontFamily: "monospace" }}>
+            <span style={{ fontSize: 15, color: "#676D66", fontFamily: "monospace" }}>
               GITHUB STARS CURATION
             </span>
           </div>
@@ -63,8 +63,8 @@ export default async function Image() {
                 lineHeight: 1.0,
               }}
             >
-              <span style={{ color: "#E8E8E8" }}>GitHub</span>
-              <span style={{ color: "#F0A500" }}>Stars →</span>
+              <span style={{ color: "#1B2129" }}>GitHub</span>
+              <span style={{ color: "#C2402C" }}>Stars →</span>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, maxWidth: "900px" }}>
               {CATEGORIES.map((cat) => (
@@ -73,8 +73,8 @@ export default async function Image() {
                   style={{
                     display: "flex",
                     fontSize: 15,
-                    color: "#888",
-                    border: "1px solid #2a2a2a",
+                    color: "#676D66",
+                    border: "1px solid #C9CBC2",
                     padding: "5px 16px",
                     borderRadius: 4,
                     fontFamily: "monospace",
@@ -87,7 +87,7 @@ export default async function Image() {
                 style={{
                   display: "flex",
                   fontSize: 15,
-                  color: "#555",
+                  color: "#676D66",
                   padding: "5px 8px",
                   fontFamily: "monospace",
                 }}
@@ -100,10 +100,10 @@ export default async function Image() {
           {/* 하단 */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 8, height: 8, backgroundColor: "#F0A500", borderRadius: "50%" }} />
-              <span style={{ fontSize: 15, color: "#555", fontFamily: "monospace" }}>jinslife.kr</span>
+              <div style={{ width: 8, height: 8, backgroundColor: "#C2402C", borderRadius: "50%" }} />
+              <span style={{ fontSize: 15, color: "#676D66", fontFamily: "monospace" }}>jinslife.kr</span>
             </div>
-            <span style={{ fontSize: 14, color: "#444", fontFamily: "monospace" }}>
+            <span style={{ fontSize: 14, color: "#676D66", fontFamily: "monospace" }}>
               직접 Star한 레포 큐레이션
             </span>
           </div>

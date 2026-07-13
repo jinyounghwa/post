@@ -20,7 +20,7 @@ export default function NewsCard({ slug, title, date, tags, summary }: NewsCardP
             </span>
           ))}
         </div>
-        <h3 className="font-[family-name:var(--font-syne)] text-lg font-semibold mb-2 group-hover:text-accent transition-colors">
+        <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold mb-2 group-hover:text-accent transition-colors">
           {title}
         </h3>
         <p className="text-sm text-sub leading-relaxed font-mono">

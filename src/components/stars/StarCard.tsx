@@ -20,7 +20,7 @@ export default function StarCard({ name, link, description, reason, categoryTitl
             {categoryTitle}
           </span>
         )}
-        <h3 className="font-[family-name:var(--font-syne)] text-base font-semibold mb-2 group-hover:text-accent transition-colors">
+        <h3 className="font-[family-name:var(--font-display)] text-base font-semibold mb-2 group-hover:text-accent transition-colors">
           {name}
         </h3>
         <p className="text-sm text-sub mb-2 font-mono">{description}</p>

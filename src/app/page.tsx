@@ -49,7 +49,7 @@ export default function HomePage() {
         {/* 문서 메타 헤더 */}
         <div className="fade-up grid grid-cols-2 sm:grid-cols-4 border border-foreground divide-x divide-border bg-card mb-10 md:mb-14">
           {[
-            ["문서구분", "사업 제안서"],
+            ["문서구분", "이력 및 소개서"],
             ["작성자", "진영화"],
             ["경력", "IT 기획 14년"],
             ["상태", "수주 가능"],
@@ -66,15 +66,15 @@ export default function HomePage() {
         <div className="relative">
           <p className="spec-label mb-4 fade-up">01 — 제안 개요</p>
           <h1 className="fade-up fade-up-delay-1 font-[family-name:var(--font-display)] text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.15] mb-6 max-w-3xl">
-            기획부터 배포까지,
+            기획서만 쓰지 않습니다.
             <br />
-            완성도 높은 솔루션을 만드는
+            직접 만들어서 증명하는,
             <br />
-            <span className="text-accent">1인 풀스택 개발팀</span>
+            <span className="text-accent">개발을 좀 하는 기획자</span>
           </h1>
           <p className="fade-up fade-up-delay-2 text-sub text-sm sm:text-base max-w-xl leading-relaxed mb-10">
-            14년의 IT 기획 경험과 최신 개발 기술로 비즈니스 아이디어를 현실로 만듭니다.
-            경력 소개 대신, 실제로 동작하는 데모 8종을 먼저 보여드립니다.
+            14년의 IT 기획 경험에 개발 역량을 얹어, 비즈니스 아이디어를 요구사항 정의부터
+            배포까지 직접 완성합니다. 경력 소개 대신, 실제로 동작하는 데모 8종을 먼저 보여드립니다.
           </p>
 
           {/* 시그니처: 도장 */}

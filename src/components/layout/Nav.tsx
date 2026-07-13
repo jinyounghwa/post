@@ -30,7 +30,7 @@ export default function Nav() {
           className="font-[family-name:var(--font-display)] text-lg font-bold tracking-tight"
         >
           jin<span className="text-accent">slife</span>
-          <span className="doc-cell text-sub ml-2 hidden sm:inline">— 기획하는 개발자</span>
+          <span className="doc-cell text-sub ml-2 hidden sm:inline">— 개발하는 기획자</span>
         </Link>
 
         {/* Desktop */}

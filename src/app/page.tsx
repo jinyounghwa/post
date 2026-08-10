@@ -74,7 +74,7 @@ export default function HomePage() {
           </h1>
           <p className="fade-up fade-up-delay-2 text-sub text-sm sm:text-base max-w-xl leading-relaxed mb-10">
             14년의 IT 기획 경험에 개발 역량을 얹어, 비즈니스 아이디어를 요구사항 정의부터
-            직접 보여드립니다. 경력 소개 대신, 실제로 동작하는 데모 8종을 먼저 보여드립니다.
+            직접 보여드립니다. 경력 소개 대신, 실제로 동작하는 데모 10종을 먼저 보여드립니다.
           </p>
 
           {/* 시그니처: 도장 */}
@@ -90,7 +90,7 @@ export default function HomePage() {
               href="/portfolio/"
               className="doc-cell px-6 py-3.5 bg-foreground text-background hover:bg-accent transition-colors"
             >
-              데모 8종 보기 →
+              데모 10종 보기 →
             </Link>
             <a
               href="mailto:timotolkie@gmail.com"
@@ -131,7 +131,7 @@ export default function HomePage() {
             </h2>
           </div>
           <Link href="/portfolio/" className="doc-cell text-blue hover:text-accent transition-colors shrink-0 pb-1">
-            전체 8개 보기 →
+            전체 10개 보기 →
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

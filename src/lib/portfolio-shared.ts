@@ -27,6 +27,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   wms: 'WMS / 물류',
   edtech: 'EdTech',
   'web-design': 'Web Design',
+  security: 'Security',
 };
 
 export function getYoutubeId(url: string): string | null {

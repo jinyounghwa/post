@@ -3,15 +3,15 @@ import { getSortedPortfolio } from "@/lib/portfolio";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 
 export const metadata: Metadata = {
-  title: "Portfolio — 데모 10종",
+  title: "Portfolio — 데모 12종",
   description:
-    "실제 동작하는 데모 10종. 이커머스, WMS, AI/LLM, 공공데이터, iOS 앱까지 — 기획부터 배포까지 직접 만든 결과물.",
+    "실제 동작하는 데모 12종. 이커머스, WMS, AI/LLM, 공공데이터, iOS 앱까지 — 기획부터 배포까지 직접 만든 결과물.",
   openGraph: {
     type: "website",
     url: "https://jinslife.kr/portfolio/",
-    title: "Portfolio — 데모 10종 | jinslife.kr",
+    title: "Portfolio — 데모 12종 | jinslife.kr",
     description:
-      "실제 동작하는 데모 10종. 이커머스, WMS, AI/LLM, 공공데이터, iOS 앱까지 — 기획부터 배포까지 직접 만든 결과물.",
+      "실제 동작하는 데모 12종. 이커머스, WMS, AI/LLM, 공공데이터, iOS 앱까지 — 기획부터 배포까지 직접 만든 결과물.",
   },
 };
 
@@ -23,7 +23,7 @@ export default function PortfolioPage() {
       <section className="mb-10 md:mb-14">
         <p className="spec-label mb-3">02 — PORTFOLIO</p>
         <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-5xl font-bold tracking-tight mb-4">
-          말 대신, <span className="text-accent">동작하는 데모 10종</span>
+          말 대신, <span className="text-accent">동작하는 데모 12종</span>
         </h1>
         <p className="text-sub text-sm max-w-xl leading-relaxed">
           경력 기술서가 아니라 실제로 돌아가는 결과물로 증명합니다.

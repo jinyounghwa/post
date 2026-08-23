@@ -25,7 +25,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://jinslife.kr"),
   title: {
-    default: "진영화 — 기획하는 풀스택 개발자 | jinslife.kr",
+    default: "진영화 — 개발하는 기획자 | jinslife.kr",
     template: "%s | jinslife.kr",
   },
   description:
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://jinslife.kr",
     siteName: "jinslife.kr",
-    title: "진영화 — 기획하는 풀스택 개발자 | jinslife.kr",
+    title: "진영화 — 개발하는 기획자 | jinslife.kr",
     description:
       "14년 IT 기획 경험 기반 1인 풀스택 개발. 요구사항 정의부터 배포까지, 실제 동작하는 데모 8종으로 증명하는 포트폴리오.",
     locale: "ko_KR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "진영화 — 기획하는 풀스택 개발자 | jinslife.kr",
+    title: "진영화 — 개발하는 기획자 | jinslife.kr",
     description:
       "14년 IT 기획 경험 기반 1인 풀스택 개발. 요구사항 정의부터 배포까지, 실제 동작하는 데모 8종으로 증명하는 포트폴리오.",
   },

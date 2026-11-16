@@ -34,7 +34,7 @@ export default function PortfolioCard({ item }: { item: PortfolioItem }) {
         <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold leading-snug">
           {item.title}
         </h3>
-        <p className="text-sm text-[#3B4149] leading-relaxed">{item.summary}</p>
+        <p className="text-sm text-[var(--prose)] leading-relaxed">{item.summary}</p>
         <p className="text-sm leading-relaxed border-l-2 border-accent pl-3 text-sub">
           {item.highlight}
         </p>

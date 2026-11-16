@@ -33,7 +33,7 @@ export default function PortfolioPage() {
 
       <PortfolioGrid items={items} />
 
-      <section className="mt-14 border border-foreground bg-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <section className="mt-14 border border-rule bg-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold mb-1">
             비슷한 걸 만들어야 하나요?

@@ -20,11 +20,11 @@ export default async function Image() {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#F3F3EE",
+          backgroundColor: "#0A0A0A",
         }}
       >
         {/* 상단 인주색 바 */}
-        <div style={{ width: "100%", height: "6px", backgroundColor: "#C2402C" }} />
+        <div style={{ width: "100%", height: "6px", backgroundColor: "#F0A500" }} />
 
         <div
           style={{
@@ -40,7 +40,7 @@ export default async function Image() {
             <span
               style={{
                 fontSize: 18,
-                color: "#C2402C",
+                color: "#F0A500",
                 fontFamily: "monospace",
                 letterSpacing: 4,
                 textTransform: "uppercase",
@@ -48,7 +48,7 @@ export default async function Image() {
             >
               JINSLIFE.KR
             </span>
-            <span style={{ fontSize: 15, color: "#676D66", fontFamily: "monospace", letterSpacing: 2 }}>
+            <span style={{ fontSize: 15, color: "#8F8C84", fontFamily: "monospace", letterSpacing: 2 }}>
               PLANNER × FULL-STACK DEVELOPER
             </span>
           </div>
@@ -62,14 +62,14 @@ export default async function Image() {
                   flexDirection: "column",
                   fontSize: 76,
                   fontWeight: 800,
-                  color: "#1B2129",
+                  color: "#EDEAE2",
                   lineHeight: 1.05,
                   fontFamily: fontData ? "Syne" : "sans-serif",
                   letterSpacing: -2,
                 }}
               >
                 <span>기획부터 배포까지,</span>
-                <span style={{ color: "#C2402C" }}>1인 풀스택 개발팀</span>
+                <span style={{ color: "#F0A500" }}>1인 풀스택 개발팀</span>
               </div>
               <div style={{ display: "flex", gap: 10 }}>
                 {["데모 8종", "IT 기획 14년", "WMS · 커머스 · AI"].map((label) => (
@@ -78,9 +78,9 @@ export default async function Image() {
                     style={{
                       display: "flex",
                       fontSize: 16,
-                      color: "#676D66",
-                      border: "1px solid #C9CBC2",
-                      backgroundColor: "#FCFCF9",
+                      color: "#8F8C84",
+                      border: "1px solid #3A372F",
+                      backgroundColor: "#131210",
                       padding: "6px 18px",
                       fontFamily: "monospace",
                     }}
@@ -99,9 +99,9 @@ export default async function Image() {
                 justifyContent: "center",
                 width: 130,
                 height: 130,
-                border: "4px solid #C2402C",
+                border: "4px solid #F0A500",
                 borderRadius: "50%",
-                color: "#C2402C",
+                color: "#F0A500",
                 fontSize: 34,
                 fontWeight: 800,
                 transform: "rotate(-8deg)",
@@ -113,8 +113,8 @@ export default async function Image() {
 
           {/* 하단: 브랜딩 */}
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 8, height: 8, backgroundColor: "#C2402C", borderRadius: "50%" }} />
-            <span style={{ fontSize: 15, color: "#676D66", fontFamily: "monospace" }}>
+            <div style={{ width: 8, height: 8, backgroundColor: "#F0A500", borderRadius: "50%" }} />
+            <span style={{ fontSize: 15, color: "#8F8C84", fontFamily: "monospace" }}>
               jinslife.kr — 진영화
             </span>
           </div>

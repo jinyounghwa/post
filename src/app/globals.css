@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F3F3EE;
-  --foreground: #1B2129;
-  --accent: #C2402C;
-  --blue: #2947A9;
-  --sub: #676D66;
-  --border: #D8D9D0;
-  --card: #FCFCF9;
-  --font-display: var(--font-hahmlet), serif;
+  /* 다크 + 앰버 (3D 홈과 동일 톤) */
+  color-scheme: dark;
+  --background: #0A0A0A;
+  --foreground: #EDEAE2;
+  --accent: #F0A500;
+  --blue: #8EA6D8;
+  --sub: #8F8C84;
+  --border: #26241F;
+  --rule: #4A463E;
+  --card: #131210;
+  --prose: #C9C6BD;
+  --font-display: var(--font-syne), var(--font-plex-kr), sans-serif;
   --font-body: var(--font-plex-kr), sans-serif;
   --font-utility: var(--font-plex-mono), var(--font-plex-kr), monospace;
 }
@@ -20,6 +24,7 @@
   --color-blue: var(--blue);
   --color-sub: var(--sub);
   --color-border: var(--border);
+  --color-rule: var(--rule);
   --color-card: var(--card);
   --font-sans: var(--font-body);
   --font-mono: var(--font-utility);
@@ -36,14 +41,14 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    /* 미세한 종이 결 */
-    background-image: radial-gradient(rgba(27, 33, 41, 0.035) 1px, transparent 1px);
+    /* 미세한 도면 점 격자 */
+    background-image: radial-gradient(rgba(237, 234, 226, 0.04) 1px, transparent 1px);
     background-size: 24px 24px;
   }
 
   ::selection {
     background: var(--accent);
-    color: var(--card);
+    color: var(--background);
   }
 
   a {
@@ -76,9 +81,9 @@
   }
 
   .card-hover:hover {
-    border-color: var(--foreground);
+    border-color: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 4px 4px 0 rgba(27, 33, 41, 0.08);
+    box-shadow: 0 8px 30px rgba(240, 165, 0, 0.08);
   }
 
   .tag {
@@ -117,7 +122,7 @@
 
   /* 굵은 문서 괘선 */
   .rule-strong {
-    border-color: var(--foreground);
+    border-color: var(--rule);
   }
 }
 
@@ -132,7 +137,6 @@
   font-family: var(--font-display);
   font-weight: 700;
   transform: rotate(-8deg);
-  mix-blend-mode: multiply;
   user-select: none;
 }
 
@@ -195,7 +199,7 @@
 
 .prose p {
   margin-bottom: 1rem;
-  color: #3B4149;
+  color: var(--prose);
 }
 
 .prose ul, .prose ol {
@@ -205,7 +209,7 @@
 
 .prose li {
   margin-bottom: 0.5rem;
-  color: #3B4149;
+  color: var(--prose);
 }
 
 .prose strong {
@@ -223,7 +227,7 @@
 
 .prose code {
   font-family: var(--font-utility);
-  background: #E9EAE2;
+  background: #1C1A16;
   padding: 2px 6px;
   font-size: 0.9em;
   border-radius: 3px;
@@ -261,9 +265,14 @@
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #C5C6BD;
+  background: #3A372F;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #A9AAA0;
+  background: #5A564B;
+}
+
+/* 디스플레이 서체: Syne(라틴) + Plex KR(한글) */
+.font-world {
+  font-family: var(--font-syne), var(--font-plex-kr), sans-serif;
 }

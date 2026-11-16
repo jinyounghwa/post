@@ -3,6 +3,13 @@
 export const CONTACT_EMAIL = "timotolkie@gmail.com";
 export const GITHUB_URL = "https://github.com/jinyounghwa";
 
+export const NAV = [
+  { name: "Portfolio", href: "/portfolio/" },
+  { name: "About", href: "/about/" },
+  { name: "News", href: "/news/" },
+  { name: "Stars", href: "/stars/" },
+];
+
 export const STRENGTHS = [
   {
     no: "01",

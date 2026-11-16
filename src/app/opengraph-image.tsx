@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { loadSyneFont } from "@/lib/og-font";
+import { getSortedPortfolio } from "@/lib/portfolio";
 
 export const dynamic = "force-static";
 
@@ -72,7 +73,7 @@ export default async function Image() {
                 <span style={{ color: "#F0A500" }}>1인 풀스택 개발팀</span>
               </div>
               <div style={{ display: "flex", gap: 10 }}>
-                {["데모 8종", "IT 기획 14년", "WMS · 커머스 · AI"].map((label) => (
+                {[`데모 ${getSortedPortfolio().length}종`, "IT 기획 14년", "WMS · 커머스 · AI"].map((label) => (
                   <div
                     key={label}
                     style={{

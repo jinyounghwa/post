@@ -1,47 +1,24 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Component, useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { MediaType, PortfolioItem } from "@/lib/portfolio-shared";
 import {
   CAREER,
   CONTACT_EMAIL,
   DOMAINS,
   GITHUB_URL,
+  NAV,
   PROCESS,
   SERVICES,
   STACK,
   STRENGTHS,
 } from "@/lib/profile";
-
-/** Home(DOM) → 3D 씬으로 매 프레임 넘기는 값. 리렌더 없이 ref로 공유 */
-export interface SceneBus {
-  chapter: number; // 0..CHAPTERS-1 사이 실수 (스크롤 위치)
-  active: string | null; // 호버 중인 데모 slug
-}
-
-// three.js 번들은 클라이언트에서만 지연 로드
-const CityScene = dynamic(() => import("./CityScene"), { ssr: false });
-
-// WebGL 실패 시 3D만 빠지고 콘텐츠는 그대로
-class WebGLBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() {
-    return { failed: true };
-  }
-  render() {
-    return this.state.failed ? null : this.props.children;
-  }
-}
+import { bus, HOME_SHOTS } from "./bus";
+import Hud from "./Hud";
+import World3D from "./World3D";
 
 const CHAPTERS = ["INTRO", "STRENGTHS", "DEMOS", "PROFILE", "PROCESS", "STACK", "CONTACT"];
-const NAV = [
-  { name: "Portfolio", href: "/portfolio/" },
-  { name: "About", href: "/about/" },
-  { name: "News", href: "/news/" },
-  { name: "Stars", href: "/stars/" },
-];
 const MEDIA_LABEL: Record<MediaType, string> = {
   youtube: "영상 보기",
   appstore: "App Store",
@@ -58,12 +35,12 @@ function Kicker({ index }: { index: number }) {
 }
 
 export default function Home({ items }: { items: PortfolioItem[] }) {
-  const bus = useRef<SceneBus>({ chapter: 0, active: null });
   const sections = useRef<(HTMLElement | null)[]>([]);
   const [chapter, setChapter] = useState(0);
 
   // 스크롤 → 챕터 실수값: 뷰포트 중앙이 섹션 중심 사이 어디쯤인지 보간
   useEffect(() => {
+    bus.active = null;
     let raf = 0;
     const update = () => {
       raf = 0;
@@ -78,7 +55,7 @@ export default function Home({ items }: { items: PortfolioItem[] }) {
             break;
           }
         }
-      bus.current.chapter = t;
+      bus.chapter = t;
       setChapter(Math.round(t));
     };
     const onScroll = () => {
@@ -105,47 +82,9 @@ export default function Home({ items }: { items: PortfolioItem[] }) {
 
   return (
     <div className="relative min-h-screen w-full bg-[#0A0A0A] text-[#EDEAE2] selection:bg-[#F0A500] selection:text-[#0A0A0A]">
-      {/* 3D 월드 */}
-      <div className="fixed inset-0 z-0" aria-hidden>
-        <WebGLBoundary>
-          <CityScene items={items} bus={bus} />
-        </WebGLBoundary>
-      </div>
-      {/* 가독성 그라디언트: 좌측 텍스트 컬럼만 어둡게 */}
-      <div
-        className="pointer-events-none fixed inset-0 z-[1] bg-[#0A0A0A]/65 md:bg-transparent md:bg-linear-to-r md:from-[#0A0A0A]/95 md:via-[#0A0A0A]/55 md:to-transparent"
-        aria-hidden
-      />
+      <World3D items={items} shots={HOME_SHOTS} labelChapter={2} />
 
-      {/* HUD */}
-      <header className="fixed inset-x-0 top-0 z-30 border-b border-white/10 bg-[#0A0A0A]/60 backdrop-blur-md">
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-8">
-          <Link href="/" className="font-world text-lg font-bold tracking-tight">
-            jin<span className="text-[#F0A500]">slife</span>
-          </Link>
-          <span className="hidden font-mono text-[11px] tracking-[0.2em] text-white/45 lg:block">
-            {pad(chapter)} / {pad(CHAPTERS.length - 1)} — {CHAPTERS[chapter]}
-          </span>
-          <div className="flex items-center gap-4 sm:gap-6">
-            {NAV.map((n) => (
-              <Link
-                key={n.href}
-                href={n.href}
-                className="hidden font-mono text-xs text-white/60 transition-colors hover:text-white sm:inline"
-              >
-                {n.name}
-              </Link>
-            ))}
-            <button
-              type="button"
-              onClick={() => goTo(CHAPTERS.length - 1)}
-              className="cursor-pointer bg-[#F0A500] px-4 py-2 font-mono text-xs font-medium text-[#0A0A0A] transition-colors hover:bg-white"
-            >
-              Contact
-            </button>
-          </div>
-        </nav>
-      </header>
+      <Hud status={`${pad(chapter)} / ${pad(CHAPTERS.length - 1)} — ${CHAPTERS[chapter]}`} />
 
       {/* 챕터 레일 */}
       <aside className="fixed right-5 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-3 md:flex">
@@ -244,10 +183,10 @@ export default function Home({ items }: { items: PortfolioItem[] }) {
                 <li
                   key={item.slug}
                   id={`demo-${item.slug}`}
-                  onMouseEnter={() => (bus.current.active = item.slug)}
-                  onMouseLeave={() => (bus.current.active = null)}
-                  onFocus={() => (bus.current.active = item.slug)}
-                  onBlur={() => (bus.current.active = null)}
+                  onMouseEnter={() => (bus.active = item.slug)}
+                  onMouseLeave={() => (bus.active = null)}
+                  onFocus={() => (bus.active = item.slug)}
+                  onBlur={() => (bus.active = null)}
                   className="scroll-mt-28 border border-white/10 bg-[#0A0A0A]/75 p-5 backdrop-blur-sm transition-colors hover:border-[#F0A500] focus-within:border-[#F0A500]"
                 >
                   <div className="mb-2 flex items-center justify-between font-mono text-[11px]">
@@ -390,7 +329,7 @@ export default function Home({ items }: { items: PortfolioItem[] }) {
         </section>
 
         {/* 06 CONTACT */}
-        <section ref={reg(6)} className={`${section} flex-col !items-start justify-center`}>
+        <section ref={reg(6)} id="contact" className={`${section} flex-col !items-start justify-center`}>
           <div className={panel}>
             <Kicker index={6} />
             <h2 className="font-world mb-6 text-3xl font-extrabold leading-tight sm:text-5xl">

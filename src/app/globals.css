@@ -110,7 +110,7 @@
     font-size: 12px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--blue);
+    color: var(--accent);
   }
 
   /* 문서 헤더/메타 표 셀 */

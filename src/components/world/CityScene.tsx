@@ -1,28 +1,15 @@
 "use client";
 
 import { useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
+import { useRouter } from "next/navigation";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Edges, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import type { PortfolioItem } from "@/lib/portfolio-shared";
-import type { SceneBus } from "./Home";
+import { bus, type Shot } from "./bus";
 
 const AMBER = "#F0A500";
 const BG = "#0A0A0A";
-
-// 섹션(챕터)별 카메라 위치 / 시선. Home의 섹션 순서와 1:1 대응
-const SHOTS: [number, number, number][][] = [
-  [[16, 10, 18], [-5, 0, 0]], // 00 hero
-  [[9, 4, 13], [-2, 1.5, 0]], // 01 strengths
-  [[-4, 15, 21], [-2, 0.5, -1]], // 02 demos: 타워 12개가 한눈에
-  [[-15, 3.5, -3], [0, 2, 0]], // 03 about
-  [[2, 20, 7], [-3, 0, 0]], // 04 process: 도면처럼 내려다보기
-  [[13, 5, -12], [0, 1.5, 0]], // 05 stack
-  [[0.5, 34, 6], [-3, 0, 0]], // 06 contact: 상공으로 상승
-];
-const camCurve = new THREE.CatmullRomCurve3(SHOTS.map(([p]) => new THREE.Vector3(...p)));
-const lookCurve = new THREE.CatmullRomCurve3(SHOTS.map(([, l]) => new THREE.Vector3(...l)));
-const DEMO_CHAPTER = 2;
 
 // 결정적 의사난수 (SSR/리렌더와 무관하게 같은 도시)
 const rand = (i: number) => {
@@ -98,12 +85,8 @@ function City({ radius, reduce }: { radius: number; reduce: boolean }) {
   );
 }
 
-function Tower({ item, index, bus, reduce }: {
-  item: PortfolioItem;
-  index: number;
-  bus: RefObject<SceneBus>;
-  reduce: boolean;
-}) {
+function Tower({ item, index, reduce }: { item: PortfolioItem; index: number; reduce: boolean }) {
+  const router = useRouter();
   const group = useRef<THREE.Group>(null);
   const body = useRef<THREE.MeshStandardMaterial>(null);
   const cap = useRef<THREE.MeshBasicMaterial>(null);
@@ -115,7 +98,7 @@ function Tower({ item, index, bus, reduce }: {
     const g = group.current;
     if (!g || !body.current || !cap.current) return;
     const k = 1 - Math.exp(-6 * dt);
-    const lit = hovered || bus.current.active === item.slug;
+    const lit = hovered || bus.active === item.slug;
     body.current.emissiveIntensity += ((lit ? 0.9 : 0.12) - body.current.emissiveIntensity) * k;
     cap.current.opacity += ((lit ? 1 : 0.45) - cap.current.opacity) * k;
     // 도시 인트로 뒤에 순서대로 솟아오름
@@ -123,8 +106,12 @@ function Tower({ item, index, bus, reduce }: {
     g.scale.y = Math.max(0.001, 1 - (1 - rise) ** 3);
   });
 
-  const pick = () =>
-    document.getElementById(`demo-${item.slug}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+  // 현재 페이지에 해당 카드가 있으면 스크롤, 없으면 포트폴리오 페이지로
+  const pick = () => {
+    const card = document.getElementById(`demo-${item.slug}`);
+    if (card) card.scrollIntoView({ behavior: "smooth", block: "center" });
+    else router.push(`/portfolio/#demo-${item.slug}`);
+  };
 
   return (
     <group ref={group} position={[x, 0, z]}>
@@ -160,17 +147,22 @@ const anchor = new THREE.Vector3();
 const camTarget = new THREE.Vector3();
 const lookTarget = new THREE.Vector3();
 
-function Rig({ bus, items, labels, reduce }: {
-  bus: RefObject<SceneBus>;
+function Rig({ shots, items, labels, labelChapter, reduce }: {
+  shots: Shot[];
   items: PortfolioItem[];
   labels: RefObject<(HTMLSpanElement | null)[]>;
+  labelChapter?: number;
   reduce: boolean;
 }) {
-  const look = useRef(new THREE.Vector3(...SHOTS[0][1]));
+  const look = useRef(new THREE.Vector3(...shots[0][1]));
+  const [camCurve, lookCurve] = useMemo(
+    () => [0, 1].map((k) => new THREE.CatmullRomCurve3(shots.map((s) => new THREE.Vector3(...s[k])))),
+    [shots],
+  );
 
   useFrame((state, dt) => {
-    const ch = bus.current.chapter;
-    const u = THREE.MathUtils.clamp(ch / (SHOTS.length - 1), 0, 1);
+    const ch = bus.chapter;
+    const u = THREE.MathUtils.clamp(ch / (shots.length - 1), 0, 1);
     camCurve.getPoint(u, camTarget);
     lookCurve.getPoint(u, lookTarget);
     if (!reduce) {
@@ -182,8 +174,9 @@ function Rig({ bus, items, labels, reduce }: {
     look.current.lerp(lookTarget, k);
     state.camera.lookAt(look.current);
 
-    // 타워 라벨: 데모 챕터 근처에서만 보이도록, 화면 좌표로 투영
-    const fade = THREE.MathUtils.clamp(1.5 - Math.abs(ch - DEMO_CHAPTER) * 2, 0, 1);
+    // 타워 라벨: labelChapter 근처에서만 보이도록, 화면 좌표로 투영
+    const fade =
+      labelChapter === undefined ? 0 : THREE.MathUtils.clamp(1.5 - Math.abs(ch - labelChapter) * 2, 0, 1);
     items.forEach((item, i) => {
       const el = labels.current[i];
       if (!el) return;
@@ -201,13 +194,17 @@ function Rig({ bus, items, labels, reduce }: {
   return null;
 }
 
-export default function CityScene({ items, bus }: { items: PortfolioItem[]; bus: RefObject<SceneBus> }) {
+export default function CityScene({ items, shots, labelChapter }: {
+  items: PortfolioItem[];
+  shots: Shot[];
+  labelChapter?: number;
+}) {
   const labels = useRef<(HTMLSpanElement | null)[]>([]);
   const [{ reduce, radius }] = useState(() => ({
     reduce: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     radius: window.innerWidth < 768 ? 13 : 20,
   }));
-  const intro: [number, number, number] = reduce ? SHOTS[0][0] : [30, 34, 40];
+  const intro: [number, number, number] = reduce ? shots[0][0] : [30, 34, 40];
 
   return (
     <div className="relative h-full w-full">
@@ -215,7 +212,7 @@ export default function CityScene({ items, bus }: { items: PortfolioItem[]; bus:
         dpr={[1, 1.75]}
         camera={{ position: intro, fov: 42, near: 0.1, far: 200 }}
         gl={{ antialias: true }}
-        onCreated={({ camera }) => camera.lookAt(...SHOTS[0][1])}
+        onCreated={({ camera }) => camera.lookAt(...shots[0][1])}
       >
         <color attach="background" args={[BG]} />
         <fog attach="fog" args={[BG, 20, 62]} />
@@ -230,9 +227,9 @@ export default function CityScene({ items, bus }: { items: PortfolioItem[]; bus:
         <Stars radius={90} depth={40} count={reduce ? 800 : 1800} factor={3} fade speed={reduce ? 0 : 0.6} />
         <City radius={radius} reduce={reduce} />
         {items.map((item, i) => (
-          <Tower key={item.slug} item={item} index={i} bus={bus} reduce={reduce} />
+          <Tower key={item.slug} item={item} index={i} reduce={reduce} />
         ))}
-        <Rig bus={bus} items={items} labels={labels} reduce={reduce} />
+        <Rig shots={shots} items={items} labels={labels} labelChapter={labelChapter} reduce={reduce} />
       </Canvas>
       {items.map((item, i) => (
         <span

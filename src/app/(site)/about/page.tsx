@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { CAREER, DOMAINS, PROCESS, SERVICES, STACK } from "@/lib/profile";
+import { getSortedPortfolio } from "@/lib/portfolio";
 
 export const metadata: Metadata = {
   title: "About — 기획하는 개발자",
@@ -48,7 +49,7 @@ export default function AboutPage() {
       <section className="mb-12 md:mb-20 grid grid-cols-2 md:grid-cols-4 border border-rule divide-x divide-border bg-card">
         {[
           { value: "14+", label: "Years in IT" },
-          { value: "8", label: "Live Demos" },
+          { value: String(getSortedPortfolio().length), label: "Live Demos" },
           { value: "1", label: "App Store 출시" },
           { value: "5", label: "도메인 경험" },
         ].map((stat, i) => (

@@ -1,6 +1,7 @@
 import type { PortfolioItem } from "@/lib/portfolio-shared";
 import MediaEmbed from "./MediaEmbed";
 import CategoryBadge from "./CategoryBadge";
+import { bus } from "@/components/world/bus";
 
 const MEDIA_LABEL: Record<string, string> = {
   youtube: "VIDEO",
@@ -16,7 +17,13 @@ const CTA_LABEL: Record<string, string> = {
 
 export default function PortfolioCard({ item }: { item: PortfolioItem }) {
   return (
-    <article className="flex flex-col border border-border bg-card card-hover">
+    <article
+      id={`demo-${item.slug}`}
+      // 3D 배경의 해당 타워 점등
+      onMouseEnter={() => (bus.active = item.slug)}
+      onMouseLeave={() => (bus.active = null)}
+      className="flex scroll-mt-24 flex-col border border-border bg-card card-hover"
+    >
       {/* 스펙 시트 헤더 행 */}
       <div className="flex items-center justify-between px-4 py-2 border-b border-border">
         <span className="doc-cell text-sub">
@@ -34,7 +41,7 @@ export default function PortfolioCard({ item }: { item: PortfolioItem }) {
         <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold leading-snug">
           {item.title}
         </h3>
-        <p className="text-sm text-[#3B4149] leading-relaxed">{item.summary}</p>
+        <p className="text-sm text-[var(--prose)] leading-relaxed">{item.summary}</p>
         <p className="text-sm leading-relaxed border-l-2 border-accent pl-3 text-sub">
           {item.highlight}
         </p>

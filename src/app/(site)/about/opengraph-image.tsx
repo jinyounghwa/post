@@ -34,11 +34,11 @@ export default async function Image() {
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          backgroundColor: "#F3F3EE",
+          backgroundColor: "#0A0A0A",
         }}
       >
         {/* 상단 인주색 바 */}
-        <div style={{ width: "100%", height: "6px", backgroundColor: "#C2402C" }} />
+        <div style={{ width: "100%", height: "6px", backgroundColor: "#F0A500" }} />
 
         <div
           style={{
@@ -58,7 +58,7 @@ export default async function Image() {
             }}
           >
             {/* 상단 */}
-            <span style={{ fontSize: 17, color: "#C2402C", fontFamily: "monospace", letterSpacing: 3 }}>
+            <span style={{ fontSize: 17, color: "#F0A500", fontFamily: "monospace", letterSpacing: 3 }}>
               JINSLIFE.KR
             </span>
 
@@ -75,8 +75,8 @@ export default async function Image() {
                   lineHeight: 1.05,
                 }}
               >
-                <span style={{ color: "#1B2129" }}>진영화</span>
-                <span style={{ color: "#C2402C", fontSize: 32, fontWeight: 700, letterSpacing: -1, marginTop: 8 }}>
+                <span style={{ color: "#EDEAE2" }}>진영화</span>
+                <span style={{ color: "#F0A500", fontSize: 32, fontWeight: 700, letterSpacing: -1, marginTop: 8 }}>
                   Web Planner · Developer
                 </span>
               </div>
@@ -87,9 +87,9 @@ export default async function Image() {
                     style={{
                       display: "flex",
                       fontSize: 15,
-                      color: "#676D66",
-                      border: "1px solid #C9CBC2",
-                      backgroundColor: "#FCFCF9",
+                      color: "#8F8C84",
+                      border: "1px solid #3A372F",
+                      backgroundColor: "#131210",
                       padding: "5px 16px",
                       fontFamily: "monospace",
                     }}
@@ -102,8 +102,8 @@ export default async function Image() {
 
             {/* 하단 */}
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 8, height: 8, backgroundColor: "#C2402C", borderRadius: "50%" }} />
-              <span style={{ fontSize: 15, color: "#676D66", fontFamily: "monospace" }}>
+              <div style={{ width: 8, height: 8, backgroundColor: "#F0A500", borderRadius: "50%" }} />
+              <span style={{ fontSize: 15, color: "#8F8C84", fontFamily: "monospace" }}>
                 IT 기획 14년 · jinslife.kr
               </span>
             </div>
@@ -127,7 +127,7 @@ export default async function Image() {
                 style={{
                   borderRadius: "50%",
                   objectFit: "cover",
-                  border: "4px solid #C2402C",
+                  border: "4px solid #F0A500",
                 }}
               />
             </div>
